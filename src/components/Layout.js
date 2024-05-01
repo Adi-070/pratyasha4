@@ -60,16 +60,16 @@ const Layout = ({ children }) => {
     </div>
   
     {/* Video Section */}
-    <div class="flex h-screen relative mb-8">
-      <video class="absolute inset-0 w-full h-full object-cover" id="autoplay" loop muted>
+    <div className="flex h-screen relative mb-8">
+      <video className="absolute inset-0 w-full h-full object-cover" id="autoplay" loop muted>
         <source src="/static/sample_video6.mp4" type="video/mp4"/>
         <source src="/static/sample_video6.webm" type="video/webm"/> 
         <source src="/static/sample_video6.ogg" type="video/ogg"/> 
         Your browser does not support the video tag.
       </video>
   
-      <div class="absolute inset-0 bg-black opacity-40 "></div>
-      <div class="text-white text-4xl w-1/2 font-bold mb-8 z-10 pr-4 ml-8 mt-40">
+      <div className="absolute inset-0 bg-black opacity-40 "></div>
+      <div className="text-white text-4xl w-1/2 font-bold mb-8 z-10 pr-4 ml-8 mt-40">
         <h1 className="text-4xl font-bold text-white mb-8 ">
           Transforming spaces with innovative design and impeccable craftsmanship.
         </h1>
@@ -77,11 +77,11 @@ const Layout = ({ children }) => {
           At Pratyasha, we believe that every space has the potential to inspire and uplift. Our mission is to create exceptional architectural designs and interior spaces that reflect our clients vision and enhance their lifestyle. With a focus on quality, attention to detail, and a collaborative approach, we bring our unique expertise and passion to every project.
         </p>
         <div>
-          <button type="button" class="text-white bg-black focus:outline-none focus:ring-4 focus:ring-gray-300 font-medium text-sm px-5 py-2.5 mr-2 mb-2">
+          <button type="button" className="text-white bg-black focus:outline-none focus:ring-4 focus:ring-gray-300 font-medium text-sm px-5 py-2.5 mr-2 mb-2">
             Discover
           </button>
           &nbsp;
-          <button type="button" class="text-black bg-white focus:outline-none focus:ring-4 focus:ring-gray-300 font-medium text-sm px-5 py-2.5 mr-2 mb-2">
+          <button type="button" className="text-black bg-white focus:outline-none focus:ring-4 focus:ring-gray-300 font-medium text-sm px-5 py-2.5 mr-2 mb-2">
             Learn more
           </button>
         </div>
