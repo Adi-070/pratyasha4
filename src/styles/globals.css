@@ -34,7 +34,7 @@ body {
 .times-roman-like {
   font-family:sans-serif; /* Fallback for browsers without "Times New Roman" */
   font-weight: normal; /* Adjust if needed */
-  font-style: normal; /* Adjust if needed */
+  font-style: normal; ;/* Adjust if needed */
 }
 .tight-spacing {
   word-break: break-all;

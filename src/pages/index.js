@@ -1,12 +1,14 @@
 import React from 'react';
 import Layout from '../components/Layout';
+import BookCover from '../components/BookCover';
 
 const HomePage = () => {
   return (
+    
     <Layout>
       <section className="hero min-h-screen bg-cover bg-center" >
         <div className="container mx-auto px-4 py-24 flex flex-col justify-center items-center text-center">
-          <h1 className="text-4xl font-bold text-black mb-8 text-justify tight-spacing">
+          <h1 className="text-4xl font-bold text-black mb-8 text-justify">
           Transforming spaces with innovative design and impeccable craftsmanship.
           </h1>
           <p className="text-xl text-black-200 mb-12 times-roman-like text-justify ">
@@ -15,6 +17,10 @@ const HomePage = () => {
         </div>
       </section>
     </Layout>
+    // <div  className=" min-h-screen">
+    //       <BookCover/>
+    // </div>  
+    
   );
 };
 

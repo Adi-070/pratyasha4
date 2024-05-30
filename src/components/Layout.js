@@ -1,6 +1,7 @@
-import React from 'react';
+import React, { useEffect, useRef } from 'react';
 import Image from 'next/image';
 import Faq from './Faq';
+import Carousel from '../components/Carousel';
 
 
 if (typeof window !== 'undefined') {
@@ -9,6 +10,10 @@ if (typeof window !== 'undefined') {
   }
 }
 const Layout = ({ children }) => {
+  
+  const scrollToSection = () => {
+    document.getElementById('one').scrollIntoView({ behavior: 'smooth' });
+  };
   return (
     <div className="flex flex-col min-h-screen bg-white">
     <header className="flex justify-between items-center p-4">
@@ -49,27 +54,23 @@ const Layout = ({ children }) => {
         </div>
         <div className="w-full md:w-1/2">
           {/* Right side image */}
-          <Image
-            src="/static/photo.avif"
-            alt="Image description"
-            width={550}
-            height={350}
+          <Carousel
           />
         </div>
       </div>
     </div>
   
     {/* Video Section */}
-    <div class="flex h-screen relative mb-8">
-      <video class="absolute inset-0 w-full h-full object-cover" id="autoplay" loop muted>
-        <source src="/static/sample_video6.mp4" type="video/mp4"/>
-        <source src="/static/sample_video6.webm" type="video/webm"/> 
-        <source src="/static/sample_video6.ogg" type="video/ogg"/> 
+    <div className="flex h-screen relative mb-8">
+      <video className="absolute inset-0 w-full h-full object-cover" id="autoplay" loop muted>
+        <source src="/static/craftboy.mp4" type="video/mp4"/>
+        <source src="/static/craftboy.webm" type="video/webm"/> 
+        <source src="/static/craftboy.ogg" type="video/ogg"/> 
         Your browser does not support the video tag.
       </video>
   
-      <div class="absolute inset-0 bg-black opacity-40 "></div>
-      <div class="text-white text-4xl w-1/2 font-bold mb-8 z-10 pr-4 ml-8 mt-40">
+      <div className="absolute inset-0 bg-black opacity-40 "></div>
+      <div className="text-white text-4xl w-1/2 font-bold mb-8 z-10 pr-4 ml-8 mt-40">
         <h1 className="text-4xl font-bold text-white mb-8 ">
           Transforming spaces with innovative design and impeccable craftsmanship.
         </h1>
@@ -77,11 +78,12 @@ const Layout = ({ children }) => {
           At Pratyasha, we believe that every space has the potential to inspire and uplift. Our mission is to create exceptional architectural designs and interior spaces that reflect our clients vision and enhance their lifestyle. With a focus on quality, attention to detail, and a collaborative approach, we bring our unique expertise and passion to every project.
         </p>
         <div>
-          <button type="button" class="text-white bg-black focus:outline-none focus:ring-4 focus:ring-gray-300 font-medium text-sm px-5 py-2.5 mr-2 mb-2">
+          <button type="button" className="text-white bg-black focus:outline-none focus:ring-4 focus:ring-gray-300 font-medium text-sm px-5 py-2.5 mr-2 mb-2"
+          onClick={scrollToSection}>
             Discover
           </button>
           &nbsp;
-          <button type="button" class="text-black bg-white focus:outline-none focus:ring-4 focus:ring-gray-300 font-medium text-sm px-5 py-2.5 mr-2 mb-2">
+          <button type="button" className="text-black bg-white focus:outline-none focus:ring-4 focus:ring-gray-300 font-medium text-sm px-5 py-2.5 mr-2 mb-2">
             Learn more
           </button>
         </div>
@@ -93,7 +95,7 @@ const Layout = ({ children }) => {
       <div className="font-bold mb-8">
         <div className="flex justify-center items-center">
           <div className="w-1/2 mx-auto">
-            <h1 className="text-base text-center text-black mb-8 tight-spacing">Innovative</h1>
+            <h1 id="one"className="text-base text-center text-black mb-8 tight-spacing">Innovative</h1>
             <h2 className="text-4xl font-bold text-black mb-8 ">
               Transforming spaces with innovative design and impeccable craftsmanship.
             </h2>
@@ -145,6 +147,131 @@ const Layout = ({ children }) => {
         </div>
       </div>
     </div>
+    <h1 id="one" className="text-base text-center text-black mb-8 tight-spacing">Projects</h1>
+<div className="flex overflow-x-auto space-x-4 px-10">
+  <div className="flex space-x-20">
+    <div className="flex flex-col rounded-lg bg-white text-surface shadow-secondary-1 dark:bg-surface-dark dark:text-white min-w-[300px]">
+      <a href="#!">
+        <img
+          className="rounded-t-lg"
+          src="https://tecdn.b-cdn.net/img/new/standard/city/041.webp"
+          alt="Hollywood Sign on The Hill"
+        />
+      </a>
+      <div className="p-6">
+        <h5 className="mb-2 text-xl font-medium leading-tight">Card title</h5>
+        <p className="mb-4 text-base">
+          This is a longer card with supporting text below as a natural
+          lead-in to additional content. This content is a little bit
+          longer.
+        </p>
+        <div className='flex space-x-4'>
+        <div class="flex items-start space-x-2">
+    <div class="rounded-full py-1 px-4 font-small border bg-black text-white border-gray-300"> Residential </div>
+  </div>
+  <div class="flex items-start space-x-2">
+    <div class="rounded-full py-1 px-4 font-small border bg-black text-white border-gray-300"> Modern </div>
+  </div>
+  <div class="flex items-start space-x-2">
+    <div class="rounded-full py-1 px-4 font-small border bg-black text-white border-gray-300"> Elegant </div>
+  </div>
+  </div>
+      </div>
+    </div>
+
+    <div className="flex flex-col rounded-lg bg-white text-surface shadow-secondary-1 dark:bg-surface-dark dark:text-white min-w-[300px]">
+      <a href="#!">
+        <img
+          className="rounded-t-lg"
+          src="https://tecdn.b-cdn.net/img/new/standard/city/042.webp"
+          alt="Palm Springs Road"
+        />
+      </a>
+      <div className="p-6">
+        <h5 className="mb-2 text-xl font-medium leading-tight">Card title</h5>
+        <p className="mb-4 text-base">
+          This is a longer card with supporting text below as a natural
+          lead-in to additional content. This content is a little bit
+          longer.
+        </p>
+        <div className='flex space-x-4'>
+        <div class="flex items-start space-x-2">
+    <div class="rounded-full py-1 px-4 font-small border bg-black text-white border-gray-300"> Residential </div>
+  </div>
+  <div class="flex items-start space-x-2">
+    <div class="rounded-full py-1 px-4 font-small border bg-black text-white border-gray-300"> Modern </div>
+  </div>
+  <div class="flex items-start space-x-2">
+    <div class="rounded-full py-1 px-4 font-small border bg-black text-white border-gray-300"> Elegant </div>
+  </div>
+  </div>
+      </div>
+    </div>
+
+    <div className="flex flex-col rounded-lg bg-white text-surface shadow-secondary-1 dark:bg-surface-dark dark:text-white min-w-[300px]">
+      <a href="#!">
+        <img
+          className="rounded-t-lg"
+          src="https://tecdn.b-cdn.net/img/new/standard/city/042.webp"
+          alt="Palm Springs Road"
+        />
+      </a>
+      <div className="p-6">
+        <h5 className="mb-2 text-xl font-small leading-tight">Card title</h5>
+        <p className="mb-4 text-base">
+          This is a longer card with supporting text below as a natural
+          lead-in to additional content. This content is a little bit
+          longer.
+        </p>
+        <div className='flex space-x-4'>
+        <div class="flex items-start space-x-2">
+    <div class="rounded-full py-1 px-4 font-small border bg-black text-white border-gray-300"> Residential </div>
+  </div>
+  <div class="flex items-start space-x-2">
+    <div class="rounded-full py-1 px-4 font-small border bg-black text-white border-gray-300"> Modern </div>
+  </div>
+  <div class="flex items-start space-x-2">
+    <div class="rounded-full py-1 px-4 font-small border bg-black text-white border-gray-300"> Elegant </div>
+  </div>
+  </div>
+      </div>
+    </div>
+
+    
+
+    <div className="flex flex-col rounded-lg bg-white text-surface shadow-secondary-1 dark:bg-surface-dark dark:text-white min-w-[300px]">
+      <a href="#!">
+        <img
+          className="rounded-t-lg"
+          src="https://tecdn.b-cdn.net/img/new/standard/city/043.webp"
+          alt="Los Angeles Skyscrapers"
+        />
+      </a>
+      <div className="p-6">
+        <h5 className="mb-2 text-xl font-medium leading-tight">Card title</h5>
+        <p className="mb-4 text-base">
+          This is a longer card with supporting text below as a natural
+          lead-in to additional content. This content is a little bit
+          longer.
+        </p>
+        <div className='flex space-x-4'>
+        <div class="flex items-start space-x-2">
+    <div class="rounded-full py-1 px-4 font-small border bg-black text-white border-gray-300"> Residential </div>
+  </div>
+  <div class="flex items-start space-x-2">
+    <div class="rounded-full py-1 px-4 font-small border bg-black text-white border-gray-300"> Modern </div>
+  </div>
+  <div class="flex items-start space-x-2">
+    <div class="rounded-full py-1 px-4 font-small border bg-black text-white border-gray-300"> Elegant </div>
+  </div>
+  </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
   <Faq/>
     {/* Footer */}
     <div>

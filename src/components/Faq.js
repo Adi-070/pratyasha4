@@ -32,7 +32,7 @@ const Faq = () => {
         <div class="text-2xl font-bold text-black mb-8 tight-spacing">
       Still have questions?
     </div>
-    <a href="#"class="text-base mb-8 break-words text-center md:text-left">
+    <a href="#"className="text-base mb-8 break-words text-center md:text-left">
       Contact us for more information. 
     </a>
     <div className='w-1/2'>
