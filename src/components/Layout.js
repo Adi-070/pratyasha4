@@ -3,7 +3,6 @@ import Image from 'next/image';
 import Faq from './Faq';
 import Carousel from '../components/Carousel';
 
-
 if (typeof window !== 'undefined') {
   window.onload = function() {
     document.getElementById("autoplay").play();
@@ -200,10 +199,10 @@ const Layout = ({ children }) => {
       <div className="absolute inset-0 bg-black opacity-40 "></div>
   <div className="text-white text-4xl lg:text-5xl w-full lg:w-1/2 font-bold mb-8 z-10 pr-4 ml-8 lg:mt-40">
     <h1 className="text-4xl lg:text-5xl font-bold text-white mt-10 mb-8 ">
-      Transforming spaces with innovative design and impeccable craftsmanship.
+    Transforming Spaces Through Innovative Architectural Design
     </h1>
     <p className="text-xl lg:text-2xl text-black-200 mb-12 times-roman-like text-justify ">
-      At Pratyasha, we believe that every space has the potential to inspire and uplift. Our mission is to create exceptional architectural designs and interior spaces that reflect our clients vision and enhance their lifestyle. With a focus on quality, attention to detail, and a collaborative approach, we bring our unique expertise and passion to every project.
+    Pratyasha is a premier architectural firm specialising in interior design and construction services. Leveraging our expertise and meticulous attention to detail, we create spaces that inspire and captivate.
     </p>
     <div className="flex flex-wrap justify-center lg:justify-start">
       <button onClick={scrollToSection}  type="button" className="text-white bg-black focus:outline-none focus:ring-4 focus:ring-gray-300 font-medium text-sm px-5 py-2.5 mr-2 mb-2">
@@ -224,11 +223,11 @@ const Layout = ({ children }) => {
         <h1 id="one" className="text-base text-center text-black mt-20 md:mt-10">Innovative</h1>
         
         <h2 className="text-2xl md:text-4xl font-bold text-black mb-4 md:mb-8">
-          Transforming spaces with innovative design and impeccable craftsmanship.
+        Transforming Spaces with Creative Design Solutions
         </h2>
         <br/>
         <p className="text-lg md:text-xl text-black times-roman-like mb-12 md:mb-20">
-          At Pratyasha, we believe that every space has the potential to inspire and uplift. Our mission is to create exceptional architectural designs and interior spaces that reflect our clients vision and enhance their lifestyle. With a focus on quality, attention to detail, and a collaborative approach, we bring our unique expertise and passion to every project.
+        At Pratyasha, we offer a comprehensive range of services that include interior design, engineering solutions, and bespoke architectural solutions. Our team of experts is dedicated to transforming spaces with innovative and creative design solutions that exceed our clients' expectations.
         </p>
       </div>
     </div>
@@ -239,30 +238,33 @@ const Layout = ({ children }) => {
     <div className="flex flex-col md:flex-row md:space-x-8 space-y-8 md:space-y-0 w-full justify-center max-w-screen-xl mx-auto px-4">
       {/* Service Cards */}
       <div className="flex flex-col items-center md:w-1/3">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className="w-6 h-6 mb-4">
+      <img src="/static/floorplan.png" className="w-10 h-10 mb-2" alt="Interior Icon" />
+        {/* <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className="w-6 h-6 mb-4">
           <path d="M11.7 2.805a.75.75 0 0 1 .6 0A60.65 60.65 0 0 1 22.83 8.72a.75.75 0 0 1-.231 1.337 49.948 49.948 0 0 0-9.902 3.912l-.003.002c-.114.06-.227.119-.34.18a.75.75 0 0 1-.707 0A50.88 50.88 0 0 0 7.5 12.173v-.224c0-.131.067-.248.172-.311a54.615 54.615 0 0 1 4.653-2.52.75.75 0 0 0-.65-1.352 56.123 56.123 0 0 0-4.78 2.589 1.858 1.858 0 0 0-.859 1.228 49.803 49.803 0 0 0-4.634-1.527.75.75 0 0 1-.231-1.337A60.653 60.653 0 0 1 11.7 2.805Z" />
           <path d="M13.06 15.473a48.45 48.45 0 0 1 7.666-3.282c.134 1.414.22 2.843.255 4.284a.75.75 0 0 1-.46.711 47.87 47.87 0 0 0-8.105 4.342.75.75 0 0 1-.832 0 47.87 47.87 0 0 0-8.104-4.342.75.75 0 0 1-.461-.71c.035-1.442.121-2.87.255-4.286.921.304 1.83.634 2.726.99v1.27a1.5 1.5 0 0 0-.14 2.508c-.09.38-.222.753-.397 1.11.452.213.901.434 1.346.66a6.727 6.727 0 0 0 .551-1.607 1.5 1.5 0 0 0 .14-2.67v-.645a48.549 48.549 0 0 1 3.44 1.667 2.25 2.25 0 0 0 2.12 0Z" />
           <path d="M4.462 19.462c.42-.419.753-.89 1-1.395.453.214.902.435 1.347.662a6.742 6.742 0 0 1-1.286 1.794.75.75 0 0 1-1.06-1.06Z" />
-        </svg>
+        </svg> */}
         <div className="text-black text-xl mb-4 md:mb-8 text-center md:text-justify">Interior Design Services</div>
-        <p className="times-roman-like text-base text-center md:text-justify break-words">Our bespoke architectural solutions are tailored to meet the unique needs and vision of each client, creating spaces that inspire.</p>
+        <p className="times-roman-like text-base text-center md:text-justify break-words">Our interior design services are tailored to suit your unique style and preferences, creating functional and aesthetically pleasing spaces.</p>
       </div>
       <div className="flex flex-col items-center md:w-1/3">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className="w-6 h-6 mb-4">
+      <img src="/static/interior.png" className="w-10 h-10 mb-2 " alt="Interior Icon" />
+        {/* <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className="w-6 h-6 mb-4">
           <path d="M11.7 2.805a.75.75 0 0 1 .6 0A60.65 60.65 0 0 1 22.83 8.72a.75.75 0 0 1-.231 1.337 49.948 49.948 0 0 0-9.902 3.912l-.003.002c-.114.06-.227.119-.34.18a.75.75 0 0 1-.707 0A50.88 50.88 0 0 0 7.5 12.173v-.224c0-.131.067-.248.172-.311a54.615 54.615 0 0 1 4.653-2.52.75.75 0 0 0-.65-1.352 56.123 56.123 0 0 0-4.78 2.589 1.858 1.858 0 0 0-.859 1.228 49.803 49.803 0 0 0-4.634-1.527.75.75 0 0 1-.231-1.337A60.653 60.653 0 0 1 11.7 2.805Z" />
           <path d="M13.06 15.473a48.45 48.45 0 0 1 7.666-3.282c.134 1.414.22 2.843.255 4.284a.75.75 0 0 1-.46.711 47.87 47.87 0 0 0-8.105 4.342.75.75 0 0 1-.832 0 47.87 47.87 0 0 0-8.104-4.342.75.75 0 0 1-.461-.71c.035-1.442.121-2.87.255-4.286.921.304 1.83.634 2.726.99v1.27a1.5 1.5 0 0 0-.14 2.508c-.09.38-.222.753-.397 1.11.452.213.901.434 1.346.66a6.727 6.727 0 0 0 .551-1.607 1.5 1.5 0 0 0 .14-2.67v-.645a48.549 48.549 0 0 1 3.44 1.667 2.25 2.25 0 0 0 2.12 0Z" />
           <path d="M4.462 19.462c.42-.419.753-.89 1-1.395.453.214.902.435 1.347.662a6.742 6.742 0 0 1-1.286 1.794.75.75 0 0 1-1.06-1.06Z" />
-        </svg>
-        <div className="text-black text-xl mb-4 md:mb-8 text-center md:text-justify tight-spacing">House Construction Solutions</div>
-        <p className="times-roman-like text-base text-center md:text-justify break-words">We provide comprehensive house construction solutions, ensuring quality craftsmanship and attention to detail throughout the process.</p>
+        </svg> */}
+        <div className="text-black text-xl mb-4 md:mb-8 text-center md:text-justify tight-spacing">Engineering Solutions</div>
+        <p className="times-roman-like text-base text-center md:text-justify break-words">We provide comprehensive engineering solutions, ensuring quality craftsmanship and attention to detail throughout the process.</p>
       </div>
       <div className="flex flex-col items-center md:w-1/3">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className="w-6 h-6 mb-4">
+      <img src="/static/construction.png" className="w-10 h-10 mb-2" alt="Construction Icon" />
+        {/* <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className="w-6 h-6 mb-4">
           <path d="M11.7 2.805a.75.75 0 0 1 .6 0A60.65 60.65 0 0 1 22.83 8.72a.75.75 0 0 1-.231 1.337 49.948 49.948 0 0 0-9.902 3.912l-.003.002c-.114.06-.227.119-.34.18a.75.75 0 0 1-.707 0A50.88 50.88 0 0 0 7.5 12.173v-.224c0-.131.067-.248.172-.311a54.615 54.615 0 0 1 4.653-2.52.75.75 0 0 0-.65-1.352 56.123 56.123 0 0 0-4.78 2.589 1.858 1.858 0 0 0-.859 1.228 49.803 49.803 0 0 0-4.634-1.527.75.75 0 0 1-.231-1.337A60.653 60.653 0 0 1 11.7 2.805Z" />
           <path d="M13.06 15.473a48.45 48.45 0 0 1 7.666-3.282c.134 1.414.22 2.843.255 4.284a.75.75 0 0 1-.46.711 47.87 47.87 0 0 0-8.105 4.342.75.75 0 0 1-.832 0 47.87 47.87 0 0 0-8.104-4.342.75.75 0 0 1-.461-.71c.035-1.442.121-2.87.255-4.286.921.304 1.83.634 2.726.99v1.27a1.5 1.5 0 0 0-.14 2.508c-.09.38-.222.753-.397 1.11.452.213.901.434 1.346.66a6.727 6.727 0 0 0 .551-1.607 1.5 1.5 0 0 0 .14-2.67v-.645a48.549 48.549 0 0 1 3.44 1.667 2.25 2.25 0 0 0 2.12 0Z" />
           <path d="M4.462 19.462c.42-.419.753-.89 1-1.395.453.214.902.435 1.347.662a6.742 6.742 0 0 1-1.286 1.794.75.75 0 0 1-1.06-1.06Z" />
-        </svg>
-        <div className="text-black text-xl mb-4 md:mb-8 text-center md:text-justify">Bespoke Architectural Solutions</div>
+        </svg> */}
+        <div className="text-black text-xl mb-4 md:mb-4 text-center">Bespoke Architectural Solutions</div>
         <p className="times-roman-like text-base text-center md:text-justify break-words">Our bespoke architectural solutions are tailored to meet the unique needs and vision of each client, creating spaces that inspire.</p>
       </div><br/>
     </div>
