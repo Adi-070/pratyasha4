@@ -227,7 +227,7 @@ const Layout = ({ children }) => {
         </h2>
         <br/>
         <p className="text-lg md:text-xl text-black times-roman-like mb-12 md:mb-20">
-        At Pratyasha, we offer a comprehensive range of services that include interior design, engineering solutions, and bespoke architectural solutions. Our team of experts is dedicated to transforming spaces with innovative and creative design solutions that exceed our clients' expectations.
+        At Pratyasha, we offer a comprehensive range of services that include interior design, engineering solutions, and bespoke architectural solutions. Our team of experts is dedicated to transforming spaces with innovative and creative design solutions that exceed our client&apos;s expectations.
         </p>
       </div>
     </div>

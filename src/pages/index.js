@@ -12,7 +12,7 @@ const HomePage = () => {
           Transforming spaces through innovative design and impeccable craftsmanship.
           </h1>
           <p className="text-xl text-black-200 mb-12 times-roman-like text-justify ">
-          At Pratyasha, we believe that every space holds the potential to inspire and elevate. Our mission is to craft exceptional architectural designs and interior spaces that reflect our clients' visions and enhance their lifestyles. With an emphasis on quality, meticulous attention to detail, and a collaborative approach, we infuse our unique expertise and passion into every project.
+          At Pratyasha, we believe that every space holds the potential to inspire and elevate. Our mission is to craft exceptional architectural designs and interior spaces that reflect our client&apos;s visions and enhance their lifestyles. With an emphasis on quality, meticulous attention to detail, and a collaborative approach, we infuse our unique expertise and passion into every project.
           </p>
         </div>
       </section>

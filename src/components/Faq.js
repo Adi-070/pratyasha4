@@ -10,7 +10,7 @@ const Faq = () => {
 		<div className="divide-y dark:divide-gray-300">
 			<div className="py-6 space-y-2 md:grid md:grid-cols-12 md:gap-8 md:space-y-0">
 				<h3 className="font-semibold md:col-span-5">How do I get started?</h3>
-				<p className="md:pl-0 md:col-span-7">To begin your journey with Pratyasha, simply reach out to our team and schedule a consultation. We'll guide you through each step and provide all the necessary details to kickstart your project.</p>
+				<p className="md:pl-0 md:col-span-7">To begin your journey with Pratyasha, simply reach out to our team and schedule a consultation. We&apos;ll guide you through each step and provide all the necessary details to kickstart your project.</p>
 			</div>
 			<div className="py-6 space-y-2 md:grid md:grid-cols-12 md:gap-8 md:space-y-0">
 				<h3 className="font-semibold md:col-span-5">What are the costs involved?</h3>
