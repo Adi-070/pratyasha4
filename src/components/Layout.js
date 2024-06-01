@@ -74,7 +74,7 @@ const Layout = ({ children }) => {
       {/* <a className="text-xl font-bold text-black pl-4" href="#">
         Logo
       </a> */}
-      <img src="/static/Logo2.png" className="w-10 h-10 mb-2" alt="Interior Icon" style={{width:150,height:100}} />
+      <img src="/static/Real-logo.png" className="w-10 h-10 mb-2" alt="Interior Icon" style={{width:150,height:100}} />
   
       {/* Navigation (centered) */}
       <nav className="relative flex justify-end items-center p-4 bg-white">
