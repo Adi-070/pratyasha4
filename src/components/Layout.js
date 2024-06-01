@@ -154,16 +154,16 @@ const Layout = ({ children }) => {
       <div
     id="mobileMenu"
     ref={hamburgeref}
-    className={`md:hidden absolute top-full right-0 bg-white w-full ${isMobileMenuVisible ? 'block' : 'hidden'}`}
+    className={`md:hidden absolute top-full right-0 bg-white bg-opacity-100 w-full ${isMobileMenuVisible ? 'block' : 'hidden'}`}
   >
-    <ul className="py-2 text-sm text-gray-700 dark:text-gray-200 mt-2">
-      <li><a href="#" className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">About Us</a></li>
-      <li><a href="#" onClick={scrollToSection} className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Services</a></li>
-      <li><a href="#" onClick={scrollToArea} className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Portfolio</a></li>
-      <li><a href="#" className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Dashboard</a></li>
-      <li><a href="#" className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Settings</a></li>
-      <li><a href="#" className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Earnings</a></li>
-      <li><a href="#" className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Separated link</a></li>
+    <ul className="dropdown-content z-[1] menu p-2 shadow bg-base-100 w-52">
+      <li><a href="#" className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 bg-white dark:hover:text-white">About Us</a></li>
+      <li><a href="#" onClick={scrollToSection} className="block px-4 py-2 bg-white hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Services</a></li>
+      <li><a href="#" onClick={scrollToArea} className="block px-4 py-2 bg-white hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Portfolio</a></li>
+      <li><a href="#" className="block px-4 py-2 bg-white bg-opacity-100 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Dashboard</a></li>
+      <li><a href="#" className="block px-4 py-2 bg-white bg-opacity-100 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Settings</a></li>
+      <li><a href="#" className="block px-4 py-2 bg-white bg-opacity-100 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Earnings</a></li>
+      <li><a href="#" className="block px-4 py-2 bg-white hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Separated link</a></li>
     </ul>
   </div>
     </nav>
