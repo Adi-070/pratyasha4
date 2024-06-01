@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from 'react';
+import React, { useEffect, useState, useRef } from 'react';
 import Image from 'next/image';
 import Faq from './Faq';
 import Carousel from '../components/Carousel';
@@ -11,9 +11,63 @@ if (typeof window !== 'undefined') {
 }
 const Layout = ({ children }) => {
   
+  const dropdownRef = useRef(null);
+  const scrollContainerRef = useRef(null);
+  const hamburgeref = useRef(null);
+
   const scrollToSection = () => {
     document.getElementById('one').scrollIntoView({ behavior: 'smooth' });
   };
+  const scrollToArea = () => {
+    document.getElementById('two').scrollIntoView({ behavior: 'smooth' });
+  };
+  // State to manage the visibility of the dropdown
+  const [isDropdownVisible, setDropdownVisible] = useState(false);
+  const [isMobileMenuVisible, setMobileMenuVisible] = useState(false);
+
+  // Function to toggle the dropdown visibility
+  const toggleDropdown = () => {
+    setDropdownVisible(!isDropdownVisible);
+  };
+  const toggleMobileMenu = () => {
+    setMobileMenuVisible(!isMobileMenuVisible);
+  };
+  const handleClickOutside = (event) => {
+    if (dropdownRef.current && !dropdownRef.current.contains(event.target)) {
+      setDropdownVisible(false);
+    }
+    if (hamburgeref.current && !hamburgeref.current.contains(event.target)) {
+      setMobileMenuVisible(false);
+    }
+  };
+  const scrollLeft = () => {
+    scrollContainerRef.current.scrollBy({
+      left: -400, // Adjust this value to your desired scroll distance
+      behavior: 'smooth',
+    });
+  };
+
+  const scrollRight = () => {
+    scrollContainerRef.current.scrollBy({
+      left: 400, // Adjust this value to your desired scroll distance
+      behavior: 'smooth',
+    });
+  };
+  
+
+  // Add event listener for clicks outside the dropdown
+  useEffect(() => {
+    if (isDropdownVisible || isMobileMenuVisible) {
+      document.addEventListener('mousedown', handleClickOutside);
+    } else {
+      document.removeEventListener('mousedown', handleClickOutside);
+    }
+
+    return () => {
+      document.removeEventListener('mousedown', handleClickOutside);
+    };
+  }, [isDropdownVisible, isMobileMenuVisible]);
+
   return (
     <div className="flex flex-col min-h-screen bg-white">
     <header className="flex justify-between items-center p-4">
@@ -23,21 +77,96 @@ const Layout = ({ children }) => {
       </a>
   
       {/* Navigation (centered) */}
-      <nav className="hidden md:flex space-x-9 justify-center"> 
+      <nav className="relative flex justify-end items-center p-4 bg-white">
+      <div className="md:hidden">
+        <button id="hamburger"className="focus:outline-none" onClick={toggleMobileMenu}>
+          <svg className="w-6 h-6 text-black" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h16M4 18h16"></path>
+          </svg>
+        </button>
+      </div>
+      <div className="hidden md:flex space-x-9 justify-center">
         <a href="#" className="text-black-800 hover:text-gray-400">
           About Us
         </a>
-        <a href="#" className="text-black-800 hover:text-gray-400">
+        <a href="#" onClick={scrollToSection} className="text-black-800 hover:text-gray-400">
           Services
         </a>
-        <a href="#" className="text-black-800 hover:text-gray-400">
+        <a href="#" onClick={scrollToArea} className="text-black-800 hover:text-gray-400">
           Portfolio
         </a>
-        <a href="#" className="text-black-800 hover:text-gray-400">
-          More
-        </a>
-      </nav>
-  
+        <div className="relative">
+          <button
+            id="dropdown"
+            onClick={toggleDropdown}
+            className="text-black-800 hover:text-gray-400 text-center inline-flex items-center"
+          >
+            More
+            <svg
+              className="w-2.5 h-2.5 ms-3"
+              aria-hidden="true"
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              viewBox="0 0 10 6"
+            >
+              <path
+                stroke="currentColor"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth="2"
+                d="m1 1 4 4 4-4"
+              />
+            </svg>
+          </button>
+          <div
+            ref={dropdownRef}
+            id="dropdownDivider"
+            className={`z-10 ${isDropdownVisible ? 'block' : 'hidden'} absolute bg-white divide-y divide-gray-100 rounded-lg w-44 dark:bg-gray-700 dark:divide-gray-600`}
+          >
+            <ul className="py-2 text-sm text-gray-700 dark:text-gray-200" aria-labelledby="dropdown">
+              <li>
+                <a href="#" className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">
+                  Dashboard
+                </a>
+              </li>
+              <li>
+                <a href="#" className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">
+                  Settings
+                </a>
+              </li>
+              <li>
+                <a href="#" className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">
+                  Earnings
+                </a>
+              </li>
+            </ul>
+            <div className="py-2">
+              <a
+                href="#"
+                className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white"
+              >
+                Separated link
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div
+    id="mobileMenu"
+    ref={hamburgeref}
+    className={`md:hidden absolute top-full right-0 bg-white w-full ${isMobileMenuVisible ? 'block' : 'hidden'}`}
+  >
+    <ul className="py-2 text-sm text-gray-700 dark:text-gray-200 mt-2">
+      <li><a href="#" className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">About Us</a></li>
+      <li><a href="#" onClick={scrollToSection} className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Services</a></li>
+      <li><a href="#" onClick={scrollToArea} className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Portfolio</a></li>
+      <li><a href="#" className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Dashboard</a></li>
+      <li><a href="#" className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Settings</a></li>
+      <li><a href="#" className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Earnings</a></li>
+      <li><a href="#" className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Separated link</a></li>
+    </ul>
+  </div>
+    </nav>
       {/* Get started button */}
       <button type="button" className="text-white bg-black focus:outline-none focus:ring-4 focus:ring-gray-300 font-medium text-sm px-5 py-2.5 mr-2 mb-2">
         Get started
@@ -53,7 +182,6 @@ const Layout = ({ children }) => {
           {children}
         </div>
         <div className="w-full md:w-1/2">
-          {/* Right side image */}
           <Carousel
           />
         </div>
@@ -61,7 +189,7 @@ const Layout = ({ children }) => {
     </div>
   
     {/* Video Section */}
-    <div className="flex h-screen relative mb-8">
+    <div className="flex h-screen relative mb-20">
       <video className="absolute inset-0 w-full h-full object-cover" id="autoplay" loop muted>
         <source src="/static/craftboy.mp4" type="video/mp4"/>
         <source src="/static/craftboy.webm" type="video/webm"/> 
@@ -70,85 +198,106 @@ const Layout = ({ children }) => {
       </video>
   
       <div className="absolute inset-0 bg-black opacity-40 "></div>
-      <div className="text-white text-4xl w-1/2 font-bold mb-8 z-10 pr-4 ml-8 mt-40">
-        <h1 className="text-4xl font-bold text-white mb-8 ">
-          Transforming spaces with innovative design and impeccable craftsmanship.
-        </h1>
-        <p className="text-xl text-black-200 mb-12 times-roman-like text-justify ">
-          At Pratyasha, we believe that every space has the potential to inspire and uplift. Our mission is to create exceptional architectural designs and interior spaces that reflect our clients vision and enhance their lifestyle. With a focus on quality, attention to detail, and a collaborative approach, we bring our unique expertise and passion to every project.
-        </p>
-        <div>
-          <button type="button" className="text-white bg-black focus:outline-none focus:ring-4 focus:ring-gray-300 font-medium text-sm px-5 py-2.5 mr-2 mb-2"
-          onClick={scrollToSection}>
-            Discover
-          </button>
-          &nbsp;
-          <button type="button" className="text-black bg-white focus:outline-none focus:ring-4 focus:ring-gray-300 font-medium text-sm px-5 py-2.5 mr-2 mb-2">
-            Learn more
-          </button>
-        </div>
-      </div>
+  <div className="text-white text-4xl lg:text-5xl w-full lg:w-1/2 font-bold mb-8 z-10 pr-4 ml-8 lg:mt-40">
+    <h1 className="text-4xl lg:text-5xl font-bold text-white mt-10 mb-8 ">
+      Transforming spaces with innovative design and impeccable craftsmanship.
+    </h1>
+    <p className="text-xl lg:text-2xl text-black-200 mb-12 times-roman-like text-justify ">
+      At Pratyasha, we believe that every space has the potential to inspire and uplift. Our mission is to create exceptional architectural designs and interior spaces that reflect our clients vision and enhance their lifestyle. With a focus on quality, attention to detail, and a collaborative approach, we bring our unique expertise and passion to every project.
+    </p>
+    <div className="flex flex-wrap justify-center lg:justify-start">
+      <button onClick={scrollToSection}  type="button" className="text-white bg-black focus:outline-none focus:ring-4 focus:ring-gray-300 font-medium text-sm px-5 py-2.5 mr-2 mb-2">
+        Discover
+      </button>
+      <button type="button" className="text-black bg-white focus:outline-none focus:ring-4 focus:ring-gray-300 font-medium text-sm px-5 py-2.5 mb-2">
+        Learn more
+      </button>
     </div>
-  
+  </div>
+    </div>
+  <br/>
     {/* Innovative Section */}
     <div className="flex justify-center items-center h-screen relative ">
-      <div className="font-bold mb-8">
-        <div className="flex justify-center items-center">
-          <div className="w-1/2 mx-auto">
-            <h1 id="one"className="text-base text-center text-black mb-8 tight-spacing">Innovative</h1>
-            <h2 className="text-4xl font-bold text-black mb-8 ">
-              Transforming spaces with innovative design and impeccable craftsmanship.
-            </h2>
-            <p className="text-xl text-black times-roman-like mb-20">
-              At Pratyasha, we believe that every space has the potential to inspire and uplift. Our mission is to create exceptional architectural designs and interior spaces that reflect our clients vision and enhance their lifestyle. With a focus on quality, attention to detail, and a collaborative approach, we bring our unique expertise and passion to every project.
-            </p>
-          </div>
-        </div>
+  <div className="font-bold mb-8 w-full max-w-screen-lg mx-auto px-4">
+    <div className="flex flex-col items-center">
+      <div className="w-full md:w-3/4 lg:w-1/2 mx-auto text-center">
+        <h1 id="one" className="text-base text-center text-black mt-20 md:mt-10">Innovative</h1>
         
-        <div className="flex space-x-40 w-full justify-center max-w-screen-xl mx-auto px-4">
-          {/* Service Cards */}
-          <div>
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className="w-6 h-6 mb-4">
-              <path d="M11.7 2.805a.75.75 0 0 1 .6 0A60.65 60.65 0 0 1 22.83 8.72a.75.75 0 0 1-.231 1.337 49.948 49.948 0 0 0-9.902 3.912l-.003.002c-.114.06-.227.119-.34.18a.75.75 0 0 1-.707 0A50.88 50.88 0 0 0 7.5 12.173v-.224c0-.131.067-.248.172-.311a54.615 54.615 0 0 1 4.653-2.52.75.75 0 0 0-.65-1.352 56.123 56.123 0 0 0-4.78 2.589 1.858 1.858 0 0 0-.859 1.228 49.803 49.803 0 0 0-4.634-1.527.75.75 0 0 1-.231-1.337A60.653 60.653 0 0 1 11.7 2.805Z" />
-              <path d="M13.06 15.473a48.45 48.45 0 0 1 7.666-3.282c.134 1.414.22 2.843.255 4.284a.75.75 0 0 1-.46.711 47.87 47.87 0 0 0-8.105 4.342.75.75 0 0 1-.832 0 47.87 47.87 0 0 0-8.104-4.342.75.75 0 0 1-.461-.71c.035-1.442.121-2.87.255-4.286.921.304 1.83.634 2.726.99v1.27a1.5 1.5 0 0 0-.14 2.508c-.09.38-.222.753-.397 1.11.452.213.901.434 1.346.66a6.727 6.727 0 0 0 .551-1.607 1.5 1.5 0 0 0 .14-2.67v-.645a48.549 48.549 0 0 1 3.44 1.667 2.25 2.25 0 0 0 2.12 0Z" />
-              <path d="M4.462 19.462c.42-.419.753-.89 1-1.395.453.214.902.435 1.347.662a6.742 6.742 0 0 1-1.286 1.794.75.75 0 0 1-1.06-1.06Z" />
-            </svg>
-            <div className="text-black text-xl mb-8 text-justify">Interior Design Services</div>
-            <p className="times-roman-like text-base break-words">Our bespoke architectural solutions are tailored to meet the unique needs and vision of each client, creating spaces that inspire.</p>
-          </div>
-          <div>
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className="w-6 h-6 mb-4">
-              <path d="M11.7 2.805a.75.75 0 0 1 .6 0A60.65 60.65 0 0 1 22.83 8.72a.75.75 0 0 1-.231 1.337 49.948 49.948 0 0 0-9.902 3.912l-.003.002c-.114.06-.227.119-.34.18a.75.75 0 0 1-.707 0A50.88 50.88 0 0 0 7.5 12.173v-.224c0-.131.067-.248.172-.311a54.615 54.615 0 0 1 4.653-2.52.75.75 0 0 0-.65-1.352 56.123 56.123 0 0 0-4.78 2.589 1.858 1.858 0 0 0-.859 1.228 49.803 49.803 0 0 0-4.634-1.527.75.75 0 0 1-.231-1.337A60.653 60.653 0 0 1 11.7 2.805Z" />
-              <path d="M13.06 15.473a48.45 48.45 0 0 1 7.666-3.282c.134 1.414.22 2.843.255 4.284a.75.75 0 0 1-.46.711 47.87 47.87 0 0 0-8.105 4.342.75.75 0 0 1-.832 0 47.87 47.87 0 0 0-8.104-4.342.75.75 0 0 1-.461-.71c.035-1.442.121-2.87.255-4.286.921.304 1.83.634 2.726.99v1.27a1.5 1.5 0 0 0-.14 2.508c-.09.38-.222.753-.397 1.11.452.213.901.434 1.346.66a6.727 6.727 0 0 0 .551-1.607 1.5 1.5 0 0 0 .14-2.67v-.645a48.549 48.549 0 0 1 3.44 1.667 2.25 2.25 0 0 0 2.12 0Z" />
-              <path d="M4.462 19.462c.42-.419.753-.89 1-1.395.453.214.902.435 1.347.662a6.742 6.742 0 0 1-1.286 1.794.75.75 0 0 1-1.06-1.06Z" />
-            </svg>
-            <div className="text-black text-xl mb-8 break-words text-justify tight-spacing">House Construction Solutions</div>
-            <p className="times-roman-like text-base break-words">We provide comprehensive house construction solutions, ensuring quality craftsmanship and attention to detail throughout the process.</p>
-          </div>
-          <div>
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className="w-6 h-6 mb-4">
-              <path d="M11.7 2.805a.75.75 0 0 1 .6 0A60.65 60.65 0 0 1 22.83 8.72a.75.75 0 0 1-.231 1.337 49.948 49.948 0 0 0-9.902 3.912l-.003.002c-.114.06-.227.119-.34.18a.75.75 0 0 1-.707 0A50.88 50.88 0 0 0 7.5 12.173v-.224c0-.131.067-.248.172-.311a54.615 54.615 0 0 1 4.653-2.52.75.75 0 0 0-.65-1.352 56.123 56.123 0 0 0-4.78 2.589 1.858 1.858 0 0 0-.859 1.228 49.803 49.803 0 0 0-4.634-1.527.75.75 0 0 1-.231-1.337A60.653 60.653 0 0 1 11.7 2.805Z" />
-              <path d="M13.06 15.473a48.45 48.45 0 0 1 7.666-3.282c.134 1.414.22 2.843.255 4.284a.75.75 0 0 1-.46.711 47.87 47.87 0 0 0-8.105 4.342.75.75 0 0 1-.832 0 47.87 47.87 0 0 0-8.104-4.342.75.75 0 0 1-.461-.71c.035-1.442.121-2.87.255-4.286.921.304 1.83.634 2.726.99v1.27a1.5 1.5 0 0 0-.14 2.508c-.09.38-.222.753-.397 1.11.452.213.901.434 1.346.66a6.727 6.727 0 0 0 .551-1.607 1.5 1.5 0 0 0 .14-2.67v-.645a48.549 48.549 0 0 1 3.44 1.667 2.25 2.25 0 0 0 2.12 0Z" />
-              <path d="M4.462 19.462c.42-.419.753-.89 1-1.395.453.214.902.435 1.347.662a6.742 6.742 0 0 1-1.286 1.794.75.75 0 0 1-1.06-1.06Z" />
-            </svg>
-            <div className="text-black text-xl mb-8 text-justify">Bespoke Architectural Solutions</div>
-            <p className="times-roman-like text-base break-words">Our bespoke architectural solutions are tailored to meet the unique needs and vision of each client, creating spaces that inspire.</p>
-          </div>
-        </div>
-  
-        {/* Buttons */}
-        <div className='flex justify-center items-center mt-8'>
-          <button type="button" className="text-black border border-gray-500 focus:ring-4 focus:ring-gray-300 font-medium text-sm px-5 py-2.5 mr-2 mb-2">
-            Learn more
-          </button>
-          <button type="button" className="text-black bg-white focus:outline-none focus:ring-4 focus:ring-gray-300 font-medium text-sm px-5 py-2.5 mr-2 mb-2">
-            Sign up
-          </button>
-        </div>
+        <h2 className="text-2xl md:text-4xl font-bold text-black mb-4 md:mb-8">
+          Transforming spaces with innovative design and impeccable craftsmanship.
+        </h2>
+        <br/>
+        <p className="text-lg md:text-xl text-black times-roman-like mb-12 md:mb-20">
+          At Pratyasha, we believe that every space has the potential to inspire and uplift. Our mission is to create exceptional architectural designs and interior spaces that reflect our clients vision and enhance their lifestyle. With a focus on quality, attention to detail, and a collaborative approach, we bring our unique expertise and passion to every project.
+        </p>
       </div>
     </div>
-    <h1 id="one" className="text-base text-center text-black mb-8 tight-spacing">Projects</h1>
-<div className="flex overflow-x-auto space-x-4 px-10">
+  
+
+  
+
+    <div className="flex flex-col md:flex-row md:space-x-8 space-y-8 md:space-y-0 w-full justify-center max-w-screen-xl mx-auto px-4">
+      {/* Service Cards */}
+      <div className="flex flex-col items-center md:w-1/3">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className="w-6 h-6 mb-4">
+          <path d="M11.7 2.805a.75.75 0 0 1 .6 0A60.65 60.65 0 0 1 22.83 8.72a.75.75 0 0 1-.231 1.337 49.948 49.948 0 0 0-9.902 3.912l-.003.002c-.114.06-.227.119-.34.18a.75.75 0 0 1-.707 0A50.88 50.88 0 0 0 7.5 12.173v-.224c0-.131.067-.248.172-.311a54.615 54.615 0 0 1 4.653-2.52.75.75 0 0 0-.65-1.352 56.123 56.123 0 0 0-4.78 2.589 1.858 1.858 0 0 0-.859 1.228 49.803 49.803 0 0 0-4.634-1.527.75.75 0 0 1-.231-1.337A60.653 60.653 0 0 1 11.7 2.805Z" />
+          <path d="M13.06 15.473a48.45 48.45 0 0 1 7.666-3.282c.134 1.414.22 2.843.255 4.284a.75.75 0 0 1-.46.711 47.87 47.87 0 0 0-8.105 4.342.75.75 0 0 1-.832 0 47.87 47.87 0 0 0-8.104-4.342.75.75 0 0 1-.461-.71c.035-1.442.121-2.87.255-4.286.921.304 1.83.634 2.726.99v1.27a1.5 1.5 0 0 0-.14 2.508c-.09.38-.222.753-.397 1.11.452.213.901.434 1.346.66a6.727 6.727 0 0 0 .551-1.607 1.5 1.5 0 0 0 .14-2.67v-.645a48.549 48.549 0 0 1 3.44 1.667 2.25 2.25 0 0 0 2.12 0Z" />
+          <path d="M4.462 19.462c.42-.419.753-.89 1-1.395.453.214.902.435 1.347.662a6.742 6.742 0 0 1-1.286 1.794.75.75 0 0 1-1.06-1.06Z" />
+        </svg>
+        <div className="text-black text-xl mb-4 md:mb-8 text-center md:text-justify">Interior Design Services</div>
+        <p className="times-roman-like text-base text-center md:text-justify break-words">Our bespoke architectural solutions are tailored to meet the unique needs and vision of each client, creating spaces that inspire.</p>
+      </div>
+      <div className="flex flex-col items-center md:w-1/3">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className="w-6 h-6 mb-4">
+          <path d="M11.7 2.805a.75.75 0 0 1 .6 0A60.65 60.65 0 0 1 22.83 8.72a.75.75 0 0 1-.231 1.337 49.948 49.948 0 0 0-9.902 3.912l-.003.002c-.114.06-.227.119-.34.18a.75.75 0 0 1-.707 0A50.88 50.88 0 0 0 7.5 12.173v-.224c0-.131.067-.248.172-.311a54.615 54.615 0 0 1 4.653-2.52.75.75 0 0 0-.65-1.352 56.123 56.123 0 0 0-4.78 2.589 1.858 1.858 0 0 0-.859 1.228 49.803 49.803 0 0 0-4.634-1.527.75.75 0 0 1-.231-1.337A60.653 60.653 0 0 1 11.7 2.805Z" />
+          <path d="M13.06 15.473a48.45 48.45 0 0 1 7.666-3.282c.134 1.414.22 2.843.255 4.284a.75.75 0 0 1-.46.711 47.87 47.87 0 0 0-8.105 4.342.75.75 0 0 1-.832 0 47.87 47.87 0 0 0-8.104-4.342.75.75 0 0 1-.461-.71c.035-1.442.121-2.87.255-4.286.921.304 1.83.634 2.726.99v1.27a1.5 1.5 0 0 0-.14 2.508c-.09.38-.222.753-.397 1.11.452.213.901.434 1.346.66a6.727 6.727 0 0 0 .551-1.607 1.5 1.5 0 0 0 .14-2.67v-.645a48.549 48.549 0 0 1 3.44 1.667 2.25 2.25 0 0 0 2.12 0Z" />
+          <path d="M4.462 19.462c.42-.419.753-.89 1-1.395.453.214.902.435 1.347.662a6.742 6.742 0 0 1-1.286 1.794.75.75 0 0 1-1.06-1.06Z" />
+        </svg>
+        <div className="text-black text-xl mb-4 md:mb-8 text-center md:text-justify tight-spacing">House Construction Solutions</div>
+        <p className="times-roman-like text-base text-center md:text-justify break-words">We provide comprehensive house construction solutions, ensuring quality craftsmanship and attention to detail throughout the process.</p>
+      </div>
+      <div className="flex flex-col items-center md:w-1/3">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className="w-6 h-6 mb-4">
+          <path d="M11.7 2.805a.75.75 0 0 1 .6 0A60.65 60.65 0 0 1 22.83 8.72a.75.75 0 0 1-.231 1.337 49.948 49.948 0 0 0-9.902 3.912l-.003.002c-.114.06-.227.119-.34.18a.75.75 0 0 1-.707 0A50.88 50.88 0 0 0 7.5 12.173v-.224c0-.131.067-.248.172-.311a54.615 54.615 0 0 1 4.653-2.52.75.75 0 0 0-.65-1.352 56.123 56.123 0 0 0-4.78 2.589 1.858 1.858 0 0 0-.859 1.228 49.803 49.803 0 0 0-4.634-1.527.75.75 0 0 1-.231-1.337A60.653 60.653 0 0 1 11.7 2.805Z" />
+          <path d="M13.06 15.473a48.45 48.45 0 0 1 7.666-3.282c.134 1.414.22 2.843.255 4.284a.75.75 0 0 1-.46.711 47.87 47.87 0 0 0-8.105 4.342.75.75 0 0 1-.832 0 47.87 47.87 0 0 0-8.104-4.342.75.75 0 0 1-.461-.71c.035-1.442.121-2.87.255-4.286.921.304 1.83.634 2.726.99v1.27a1.5 1.5 0 0 0-.14 2.508c-.09.38-.222.753-.397 1.11.452.213.901.434 1.346.66a6.727 6.727 0 0 0 .551-1.607 1.5 1.5 0 0 0 .14-2.67v-.645a48.549 48.549 0 0 1 3.44 1.667 2.25 2.25 0 0 0 2.12 0Z" />
+          <path d="M4.462 19.462c.42-.419.753-.89 1-1.395.453.214.902.435 1.347.662a6.742 6.742 0 0 1-1.286 1.794.75.75 0 0 1-1.06-1.06Z" />
+        </svg>
+        <div className="text-black text-xl mb-4 md:mb-8 text-center md:text-justify">Bespoke Architectural Solutions</div>
+        <p className="times-roman-like text-base text-center md:text-justify break-words">Our bespoke architectural solutions are tailored to meet the unique needs and vision of each client, creating spaces that inspire.</p>
+      </div><br/>
+    </div>
+    {/* Buttons */}
+    <div className="flex flex-col justify-center items-center md:mt-4 space-y-4 md:space-y-0 md:space-x-4">
+  <button type="button" className="text-black border border-gray-500 focus:ring-4 focus:ring-gray-300 font-medium text-sm px-5 py-2.5 md:mb-2">
+    Learn more
+  </button>
+</div>
+  </div>
+</div>
+
+<div className="flex justify-center mt-14 items-center">
+  <div className="w-full mt-12 md:w-3/4 lg:w-1/2 mx-auto text-center"> {/* Adjust width for smaller screens */}
+    <h1 id="two" className="text-lg md:text-base text-black mt-12 md:mb-8">Projects</h1>
+    <h2 className="text-3xl md:text-4xl font-bold text-black mb-4 md:mb-8"><br/>
+      Experience Our Expertise
+    </h2>
+    <p className="text-lg md:text-xl text-black times-roman-like mb-4 md:mb-10">
+      Browse through our featured projects and see our expertise in action.
+    </p>
+  </div>
+</div>
+
+
+    
+<div className='relative'>
+  
+<button
+        onClick={scrollLeft}
+        className="absolute left-10 top-24 z-10 p-2 bg-gray-300 rounded-full"
+      >
+        &lt;
+      </button>
+<div className="flex overflow-x-auto scrollbar-hide space-x-4 px-10" ref={scrollContainerRef}>
   <div className="flex space-x-20">
     <div className="flex flex-col rounded-lg bg-white text-surface shadow-secondary-1 dark:bg-surface-dark dark:text-white min-w-[300px]">
       <a href="#!">
@@ -159,7 +308,7 @@ const Layout = ({ children }) => {
         />
       </a>
       <div className="p-6">
-        <h5 className="mb-2 text-xl font-medium leading-tight">Card title</h5>
+        <h6 className="mb-2 text-xl font-medium leading-tight">Card title</h6>
         <p className="mb-4 text-base">
           This is a longer card with supporting text below as a natural
           lead-in to additional content. This content is a little bit
@@ -269,13 +418,16 @@ const Layout = ({ children }) => {
     </div>
   </div>
 </div>
-
+<button onClick={scrollRight} className="absolute right-10 bottom-24 z-10 p-2 bg-gray-300 rounded-full">
+        &gt;
+      </button>
+</div>
 
 
   <Faq/>
     {/* Footer */}
     <div>
-  <footer className="text-gray-800 w-full mx-auto inter md:pt-24">
+  <footer className="text-gray-800 w-full mx-auto inter md:pt-15">
     <div className="container px-5 py-24 mx-auto flex md:items-center lg:items-start md:flex-row md:flex-nowrap flex-wrap flex-col">
       <div className="flex-grow flex flex-wrap -mb-10 md:mt-0 mt-10 md:text-left text-center">
         <div className="lg:w-1/4 md:w-1/2 w-full px-4">

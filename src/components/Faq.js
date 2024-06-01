@@ -29,17 +29,23 @@ const Faq = () => {
 				<p className="md:pl-0 md:col-span-7">Pratyasha has years of experience in the architectural and interior design industry. Our team of professionals has successfully completed numerous projects, ranging from residential to commercial spaces. </p>
 			</div>
 		</div>
-        <div class="text-2xl font-bold text-black mb-8 tight-spacing">
-      Still have questions?
-    </div>
-    <a href="#"className="text-base mb-8 break-words text-center md:text-left">
-      Contact us for more information. 
-    </a>
-    <div className='w-1/2'>
-    <button type="button" className="text-black border border-gray-500 focus:ring-4 focus:ring-gray-300 font-medium text-sm px-5 py-2.5 mr-2">
-            Contact us
-          </button>
-          </div>
+		
+		<div className="flex flex-col items-center justify-center">
+  <div class="text-2xl font-bold text-black mt-8 mb-8 tight-spacing">
+    Still have questions?
+  </div>
+  <a href="#" className="text-base mb-8 break-words text-center md:text-left">
+    Contact us for more information.
+  </a>
+  <div className="flex justify-center"> {/* Center the button */}
+    <button
+      type="button"
+      className="text-black border border-gray-500 focus:ring-4 focus:ring-gray-300 font-medium text-sm px-5 py-2.5 mr-2"
+    >
+      Contact us
+    </button>
+  </div>
+</div>
 
 	</div>
 </section>
