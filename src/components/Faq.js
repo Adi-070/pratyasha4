@@ -1,6 +1,9 @@
 import React from 'react'
 
 const Faq = () => {
+	const scrollToContact = () => {
+		document.getElementById('three').scrollIntoView({ behavior: 'smooth' });
+	  };
   return (
     <section className="dark:bg-gray-100 dark:text-gray-800">
 	<div className="container flex flex-col justify-center times-roman-like px-4 py-8 mx-auto md:p-8">
@@ -38,7 +41,7 @@ const Faq = () => {
     Contact us for more information.
   </a>
   <div className="flex justify-center"> {/* Center the button */}
-    <button
+    <button onClick={scrollToContact}
       type="button"
       className="text-black border border-gray-500 focus:ring-4 focus:ring-gray-300 font-medium text-sm px-5 py-2.5 mr-2"
     >
