@@ -88,20 +88,20 @@ const Layout = ({ children }) => {
         </button>
       </div>
       <div className="hidden md:flex space-x-24 justify-center">
-        <a href="#" className="text-black-800 hover:text-gray-400">
+        <a href="#" className="text-black-800 hover:text-gray-400 font-bold">
           About Us
         </a>
-        <a href="#" onClick={scrollToSection} className="text-black-800 hover:text-gray-400">
+        <a href="#" onClick={scrollToSection} className="text-black-800 hover:text-gray-400 font-bold">
           Services
         </a>
-        <a href="#" onClick={scrollToArea} className="text-black-800 hover:text-gray-400">
+        <a href="#" onClick={scrollToArea} className="text-black-800 hover:text-gray-400 font-bold">
           Portfolio
         </a>
         <div className="relative">
           <button
             id="dropdown"
             onClick={toggleDropdown}
-            className="text-black-800 hover:text-gray-400 text-center inline-flex items-center"
+            className="text-black-800 hover:text-gray-400 text-center inline-flex items-center font-bold"
           >
             More
             <svg

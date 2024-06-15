@@ -40,3 +40,6 @@ body {
   word-break: break-all;
   /* Adjust the value as needed */
 }
+.custom-spacing {
+  word-spacing: 0.5em; /* Adjust the value to increase or decrease spacing */
+}
