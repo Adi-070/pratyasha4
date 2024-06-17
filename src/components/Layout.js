@@ -88,20 +88,20 @@ const Layout = ({ children }) => {
         </button>
       </div>
       <div className="hidden md:flex space-x-24 justify-center">
-        <a href="#" className="text-black-800 hover:text-gray-400 font-bold">
+        <a href="#" className="text-black-800  hover:text-gray-600 font-bold underline-animation">
           About Us
         </a>
-        <a href="#" onClick={scrollToSection} className="text-black-800 hover:text-gray-400 font-bold">
+        <a href="#" onClick={scrollToSection} className="text-black-800  hover:text-gray-600 font-bold underline-animation">
           Services
         </a>
-        <a href="#" onClick={scrollToArea} className="text-black-800 hover:text-gray-400 font-bold">
+        <a href="#" onClick={scrollToArea} className="text-black-800  hover:text-gray-600 font-bold underline-animation">
           Portfolio
         </a>
         <div className="relative">
           <button
             id="dropdown"
             onClick={toggleDropdown}
-            className="text-black-800 hover:text-gray-400 text-center inline-flex items-center font-bold"
+            className="text-black-800 hover:text-gray-600 text-center inline-flex items-center font-bold underline-animation"
           >
             More
             <svg
@@ -125,7 +125,7 @@ const Layout = ({ children }) => {
             id="dropdownDivider"
             className={`z-10 ${isDropdownVisible ? 'block' : 'hidden'} absolute bg-white divide-y divide-gray-100 rounded-lg w-44 dark:bg-gray-700 dark:divide-gray-600`}
           >
-            <ul className="py-2 text-sm text-gray-700 dark:text-gray-200" aria-labelledby="dropdown">
+            <ul className="py-2 text-sm text-gray-700 times-roman-like dark:text-gray-200" aria-labelledby="dropdown">
               <li>
                 <a href="#" className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">
                   Dashboard
@@ -145,7 +145,7 @@ const Layout = ({ children }) => {
             <div className="py-2">
               <a
                 href="#"
-                className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white"
+                className="block px-4 py-2 text-sm times-roman-like text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white"
               >
                 Separated link
               </a>
@@ -159,18 +159,18 @@ const Layout = ({ children }) => {
     className={`md:hidden absolute top-full right-0 bg-white bg-opacity-100 w-full ${isMobileMenuVisible ? 'block' : 'hidden'}`}
   >
     <ul className="dropdown-content z-[1] menu p-2 shadow bg-base-100 w-52">
-      <li><a href="#" className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 bg-white dark:hover:text-white">About Us</a></li>
-      <li><a href="#" onClick={scrollToSection} className="block px-4 py-2 bg-white hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Services</a></li>
-      <li><a href="#" onClick={scrollToArea} className="block px-4 py-2 bg-white hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Portfolio</a></li>
-      <li><a href="#" className="block px-4 py-2 bg-white bg-opacity-100 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Dashboard</a></li>
-      <li><a href="#" className="block px-4 py-2 bg-white bg-opacity-100 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Settings</a></li>
-      <li><a href="#" className="block px-4 py-2 bg-white bg-opacity-100 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Earnings</a></li>
-      <li><a href="#" className="block px-4 py-2 bg-white hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Separated link</a></li>
+      <li><a href="#" className="times-roman-like block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 bg-white dark:hover:text-white">About Us</a></li>
+      <li><a href="#" onClick={scrollToSection} className="times-roman-like block px-4 py-2 bg-white hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Services</a></li>
+      <li><a href="#" onClick={scrollToArea} className="times-roman-like block px-4 py-2 bg-white hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Portfolio</a></li>
+      <li><a href="#" className="times-roman-like block px-4 py-2 bg-white bg-opacity-100 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Dashboard</a></li>
+      <li><a href="#" className="times-roman-like block px-4 py-2 bg-white bg-opacity-100 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Settings</a></li>
+      <li><a href="#" className="times-roman-like block px-4 py-2 bg-white bg-opacity-100 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Earnings</a></li>
+      <li><a href="#" className="times-roman-like block px-4 py-2 bg-white hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Separated link</a></li>
     </ul>
   </div>
     </nav>
       {/* Get started button */}
-      <button type="button" className="text-white bg-black focus:outline-none focus:ring-4 focus:ring-gray-300 font-medium text-sm px-5 py-2.5 mr-2 mb-2">
+      <button type="button" className="text-white times-roman-like bg-black focus:outline-none focus:ring-4 focus:ring-gray-300 font-medium text-sm px-5 py-2.5 mr-2 mb-2">
         Get started
       </button>
     </header>
@@ -201,17 +201,17 @@ const Layout = ({ children }) => {
   
       <div className="absolute inset-0 bg-black opacity-40 "></div>
   <div className="text-white text-4xl lg:text-5xl w-full lg:w-1/2 font-bold mb-8 z-10 pr-4 ml-8 lg:mt-40">
-    <h1 className="text-4xl lg:text-5xl font-bold text-white mt-10 mb-8 ">
+    <h1 className="text-4xl lg:text-5xl times-roman-like font-bold text-white mt-10 mb-8 ">
     Transforming Spaces Through Innovative Architectural Design
     </h1>
     <p className="text-xl lg:text-2xl text-black-200 mb-12 times-roman-like text-justify ">
     Pratyasha is a premier architectural firm specialising in interior design and construction services. Leveraging our expertise and meticulous attention to detail, we create spaces that inspire and captivate.
     </p>
-    <div className="flex flex-wrap justify-center lg:justify-start">
-      <button onClick={scrollToSection}  type="button" className="text-white bg-black focus:outline-none focus:ring-4 focus:ring-gray-300 font-medium text-sm px-5 py-2.5 mr-2 mb-2">
+    <div className="flex flex-wrap times-roman-like justify-center lg:justify-start">
+      <button onClick={scrollToSection}  type="button" className="text-white times-roman-like bg-black focus:outline-none focus:ring-4 focus:ring-gray-300 font-medium text-sm px-5 py-2.5 mr-2 mb-2">
         Discover
       </button>
-      <button type="button" className="text-black bg-white focus:outline-none focus:ring-4 focus:ring-gray-300 font-medium text-sm px-5 py-2.5 mb-2">
+      <button type="button" className="text-black bg-white focus:outline-none focus:ring-4 focus:ring-gray-300 font-medium text-sm px-5 py-2.5 mb-2 times-roman-like">
         Learn more
       </button>
     </div>
@@ -223,9 +223,9 @@ const Layout = ({ children }) => {
   <div className="font-bold mb-8 w-full max-w-screen-lg mx-auto px-4">
     <div className="flex flex-col items-center">
       <div className="w-full md:w-3/4 lg:w-1/2 mx-auto text-center">
-        <h1 id="one" className="text-base text-center text-black mt-20 md:mt-10">Innovative</h1>
+        <h1 id="one" className="text-base times-roman-like text-center text-black mt-20 md:mt-10">Innovative</h1>
         
-        <h2 className="text-2xl md:text-4xl font-bold text-black mb-4 md:mb-8">
+        <h2 className="text-2xl times-roman-like md:text-4xl font-bold text-black mb-4 md:mb-8">
         Transforming Spaces with Creative Design Solutions
         </h2>
         <br/>
@@ -247,7 +247,7 @@ const Layout = ({ children }) => {
           <path d="M13.06 15.473a48.45 48.45 0 0 1 7.666-3.282c.134 1.414.22 2.843.255 4.284a.75.75 0 0 1-.46.711 47.87 47.87 0 0 0-8.105 4.342.75.75 0 0 1-.832 0 47.87 47.87 0 0 0-8.104-4.342.75.75 0 0 1-.461-.71c.035-1.442.121-2.87.255-4.286.921.304 1.83.634 2.726.99v1.27a1.5 1.5 0 0 0-.14 2.508c-.09.38-.222.753-.397 1.11.452.213.901.434 1.346.66a6.727 6.727 0 0 0 .551-1.607 1.5 1.5 0 0 0 .14-2.67v-.645a48.549 48.549 0 0 1 3.44 1.667 2.25 2.25 0 0 0 2.12 0Z" />
           <path d="M4.462 19.462c.42-.419.753-.89 1-1.395.453.214.902.435 1.347.662a6.742 6.742 0 0 1-1.286 1.794.75.75 0 0 1-1.06-1.06Z" />
         </svg> */}
-        <div className="text-black text-xl mb-4 md:mb-8 text-center md:text-justify">Interior Design Services</div>
+        <div className="text-black times-roman-like text-xl mb-4 md:mb-8 text-center md:text-justify">Interior Design Services</div>
         <p className="times-roman-like text-base text-center md:text-justify break-words">Our interior design services are tailored to suit your unique style and preferences, creating functional and aesthetically pleasing spaces.</p>
       </div>
       <div className="flex flex-col items-center md:w-1/3">
@@ -257,7 +257,7 @@ const Layout = ({ children }) => {
           <path d="M13.06 15.473a48.45 48.45 0 0 1 7.666-3.282c.134 1.414.22 2.843.255 4.284a.75.75 0 0 1-.46.711 47.87 47.87 0 0 0-8.105 4.342.75.75 0 0 1-.832 0 47.87 47.87 0 0 0-8.104-4.342.75.75 0 0 1-.461-.71c.035-1.442.121-2.87.255-4.286.921.304 1.83.634 2.726.99v1.27a1.5 1.5 0 0 0-.14 2.508c-.09.38-.222.753-.397 1.11.452.213.901.434 1.346.66a6.727 6.727 0 0 0 .551-1.607 1.5 1.5 0 0 0 .14-2.67v-.645a48.549 48.549 0 0 1 3.44 1.667 2.25 2.25 0 0 0 2.12 0Z" />
           <path d="M4.462 19.462c.42-.419.753-.89 1-1.395.453.214.902.435 1.347.662a6.742 6.742 0 0 1-1.286 1.794.75.75 0 0 1-1.06-1.06Z" />
         </svg> */}
-        <div className="text-black text-xl mb-4 md:mb-8 text-center md:text-justify tight-spacing">Engineering Solutions</div>
+        <div className="text-black text-xl mb-4 md:mb-8 text-center md:text-justify tight-spacing times-roman-like">Engineering Solutions</div>
         <p className="times-roman-like text-base text-center md:text-justify break-words">We provide comprehensive engineering solutions, ensuring quality craftsmanship and attention to detail throughout the process.</p>
       </div>
       <div className="flex flex-col items-center md:w-1/3">
@@ -267,13 +267,13 @@ const Layout = ({ children }) => {
           <path d="M13.06 15.473a48.45 48.45 0 0 1 7.666-3.282c.134 1.414.22 2.843.255 4.284a.75.75 0 0 1-.46.711 47.87 47.87 0 0 0-8.105 4.342.75.75 0 0 1-.832 0 47.87 47.87 0 0 0-8.104-4.342.75.75 0 0 1-.461-.71c.035-1.442.121-2.87.255-4.286.921.304 1.83.634 2.726.99v1.27a1.5 1.5 0 0 0-.14 2.508c-.09.38-.222.753-.397 1.11.452.213.901.434 1.346.66a6.727 6.727 0 0 0 .551-1.607 1.5 1.5 0 0 0 .14-2.67v-.645a48.549 48.549 0 0 1 3.44 1.667 2.25 2.25 0 0 0 2.12 0Z" />
           <path d="M4.462 19.462c.42-.419.753-.89 1-1.395.453.214.902.435 1.347.662a6.742 6.742 0 0 1-1.286 1.794.75.75 0 0 1-1.06-1.06Z" />
         </svg> */}
-        <div className="text-black text-xl mb-4 md:mb-4 text-center">Bespoke Architectural Solutions</div>
+        <div className="text-black times-roman-like text-xl mb-4 md:mb-4 text-center">Bespoke Architectural Solutions</div>
         <p className="times-roman-like text-base text-center md:text-justify break-words">Our bespoke architectural solutions are tailored to meet the unique needs and vision of each client, creating spaces that inspire.</p>
       </div><br/>
     </div>
     {/* Buttons */}
     <div className="flex flex-col justify-center items-center md:mt-4 space-y-4 md:space-y-0 md:space-x-4">
-  <button type="button" className="text-black border border-gray-500 focus:ring-4 focus:ring-gray-300 font-medium text-sm px-5 py-2.5 md:mb-2">
+  <button type="button" className="text-black times-roman-like border border-gray-500 focus:ring-4 focus:ring-gray-300 font-medium text-sm px-5 py-2.5 md:mb-2">
     Learn more
   </button>
 </div>
@@ -284,8 +284,8 @@ const Layout = ({ children }) => {
 
 <div className="flex justify-center mt-14 items-center">
   <div className="w-full mt-12 md:w-3/4 lg:w-1/2 mx-auto text-center"> {/* Adjust width for smaller screens */}
-    <h1 id="two" className="text-lg md:text-base text-black mt-12 md:mb-8">Projects</h1>
-    <h2 className="text-3xl md:text-4xl font-bold text-black mb-4 md:mb-8"><br/>
+    <h1 id="two" className="text-lg md:text-base text-black mt-12 md:mb-8 times-roman-like">Projects</h1>
+    <h2 className="text-3xl times-roman-like times md:text-4xl font-bold text-black mb-4 md:mb-8"><br/>
       Experience Our Expertise
     </h2>
     <p className="text-lg md:text-xl text-black times-roman-like mb-4 md:mb-10">
@@ -315,21 +315,21 @@ const Layout = ({ children }) => {
         />
       </a>
       <div className="p-6">
-        <h6 className="mb-2 text-xl font-medium leading-tight">Card title</h6>
-        <p className="mb-4 text-base">
+        <h6 className="mb-2 text-xl font-medium leading-tight times-roman-like">Card title</h6>
+        <p className="mb-4 text-base times-roman-like">
           This is a longer card with supporting text below as a natural
           lead-in to additional content. This content is a little bit
           longer.
         </p>
         <div className='flex space-x-4'>
         <div class="flex items-start space-x-2">
-    <div class="rounded-full py-1 px-4 font-small border bg-black text-white border-gray-300"> Residential </div>
+    <div class="rounded-full py-1 px-4 font-small border bg-black text-white border-gray-300 times-roman-like"> Residential </div>
   </div>
   <div class="flex items-start space-x-2">
-    <div class="rounded-full py-1 px-4 font-small border bg-black text-white border-gray-300"> Modern </div>
+    <div class="rounded-full py-1 px-4 font-small border bg-black text-white border-gray-300 times-roman-like"> Modern </div>
   </div>
   <div class="flex items-start space-x-2">
-    <div class="rounded-full py-1 px-4 font-small border bg-black text-white border-gray-300"> Elegant </div>
+    <div class="rounded-full py-1 px-4 font-small border bg-black text-white border-gray-300 times-roman-like"> Elegant </div>
   </div>
   </div>
       </div>
@@ -344,21 +344,21 @@ const Layout = ({ children }) => {
         />
       </a>
       <div className="p-6">
-        <h5 className="mb-2 text-xl font-medium leading-tight">Card title</h5>
-        <p className="mb-4 text-base">
+        <h5 className="mb-2 text-xl font-medium leading-tight times-roman-like">Card title</h5>
+        <p className="mb-4 text-base times-roman-like">
           This is a longer card with supporting text below as a natural
           lead-in to additional content. This content is a little bit
           longer.
         </p>
         <div className='flex space-x-4'>
         <div class="flex items-start space-x-2">
-    <div class="rounded-full py-1 px-4 font-small border bg-black text-white border-gray-300"> Residential </div>
+    <div class="rounded-full py-1 px-4 font-small border bg-black text-white border-gray-300 times-roman-like"> Residential </div>
   </div>
   <div class="flex items-start space-x-2">
-    <div class="rounded-full py-1 px-4 font-small border bg-black text-white border-gray-300"> Modern </div>
+    <div class="rounded-full py-1 px-4 font-small border bg-black text-white border-gray-300 times-roman-like"> Modern </div>
   </div>
   <div class="flex items-start space-x-2">
-    <div class="rounded-full py-1 px-4 font-small border bg-black text-white border-gray-300"> Elegant </div>
+    <div class="rounded-full py-1 px-4 font-small border bg-black text-white border-gray-300 times-roman-like"> Elegant </div>
   </div>
   </div>
       </div>
@@ -373,21 +373,21 @@ const Layout = ({ children }) => {
         />
       </a>
       <div className="p-6">
-        <h5 className="mb-2 text-xl font-small leading-tight">Card title</h5>
-        <p className="mb-4 text-base">
+        <h5 className="mb-2 text-xl font-small leading-tight times-roman-like">Card title</h5>
+        <p className="mb-4 text-base times-roman-like">
           This is a longer card with supporting text below as a natural
           lead-in to additional content. This content is a little bit
           longer.
         </p>
         <div className='flex space-x-4'>
         <div class="flex items-start space-x-2">
-    <div class="rounded-full py-1 px-4 font-small border bg-black text-white border-gray-300"> Residential </div>
+    <div class="rounded-full py-1 px-4 font-small border bg-black text-white border-gray-300 times-roman-like"> Residential </div>
   </div>
   <div class="flex items-start space-x-2">
-    <div class="rounded-full py-1 px-4 font-small border bg-black text-white border-gray-300"> Modern </div>
+    <div class="rounded-full py-1 px-4 font-small border bg-black text-white border-gray-300 times-roman-like"> Modern </div>
   </div>
   <div class="flex items-start space-x-2">
-    <div class="rounded-full py-1 px-4 font-small border bg-black text-white border-gray-300"> Elegant </div>
+    <div class="rounded-full py-1 px-4 font-small border bg-black text-white border-gray-300 times-roman-like"> Elegant </div>
   </div>
   </div>
       </div>
@@ -404,21 +404,21 @@ const Layout = ({ children }) => {
         />
       </a>
       <div className="p-6">
-        <h5 className="mb-2 text-xl font-medium leading-tight">Card title</h5>
-        <p className="mb-4 text-base">
+        <h5 className="mb-2 text-xl font-medium leading-tight times-roman-like">Card title</h5>
+        <p className="mb-4 text-base times-roman-like">
           This is a longer card with supporting text below as a natural
           lead-in to additional content. This content is a little bit
           longer.
         </p>
         <div className='flex space-x-4'>
         <div class="flex items-start space-x-2">
-    <div class="rounded-full py-1 px-4 font-small border bg-black text-white border-gray-300"> Residential </div>
+    <div class="rounded-full py-1 px-4 font-small border bg-black text-white border-gray-300 times-roman-like"> Residential </div>
   </div>
   <div class="flex items-start space-x-2">
-    <div class="rounded-full py-1 px-4 font-small border bg-black text-white border-gray-300"> Modern </div>
+    <div class="rounded-full py-1 px-4 font-small border bg-black text-white border-gray-300 times-roman-like"> Modern </div>
   </div>
   <div class="flex items-start space-x-2">
-    <div class="rounded-full py-1 px-4 font-small border bg-black text-white border-gray-300"> Elegant </div>
+    <div class="rounded-full py-1 px-4 font-small border bg-black text-white border-gray-300 times-roman-like"> Elegant </div>
   </div>
   </div>
       </div>
@@ -430,17 +430,17 @@ const Layout = ({ children }) => {
       </button>
 </div><br/><br/>
 
-<h2 id="three"class="text-3xl md:text-4xl font-sans mb-4 md:mb-8 text-center">
+<h2 id="three"class="text-3xl times-roman-like md:text-4xl font-sans mb-4 md:mb-8 text-center">
     Contact us
 </h2>
 <br/><br/>
 <div class="grid sm:grid-cols-2 items-center gap-16 my-6 mx-auto max-w-7xl bg-white text-[#333] font-[sans-serif] w-full px-4">
     <div>
       
-        <h1 class="text-3xl font-extrabold">Let&apos;s Talk</h1><br/><br/>
-        <p class="text-sm text-gray-400 mt-3">Have some big idea or brand to develop and need help? Then reach out we&apos;d love to hear about your project and provide help.</p>
+        <h1 class="text-3xl font-extrabold times-roman-like">Let&apos;s Talk</h1><br/><br/>
+        <p class="text-sm text-gray-400 mt-3 times-roman-like">Have some big idea or brand to develop and need help? Then reach out we&apos;d love to hear about your project and provide help.</p>
         <div class="mt-12">
-            <h2 class="text-lg font-extrabold">Email</h2><br/><br/>
+            <h2 class="text-lg font-extrabold times-roman-like" >Email</h2><br/><br/>
             <ul class="mt-3">
                 <li class="flex items-center">
                     <div class="bg-[#e6e6e6cf] h-10 w-10 rounded-full flex items-center justify-center shrink-0">
@@ -450,15 +450,15 @@ const Layout = ({ children }) => {
                                 data-original="#000000" />
                         </svg>
                     </div>
-                    <a href="javascript:void(0)" class="text-black text-sm ml-3">
-                        <small class="block">Mail</small>
+                    <a href="javascript:void(0)" class="text-black times-roman-like text-sm ml-3">
+                        <small class="block ">Mail</small>
                         <strong>pratyashastudio@outlook.com</strong>
                     </a>
                 </li>
             </ul>
         </div>
         <div class="mt-12">
-            <h2 class="text-lg font-extrabold">Socials</h2><br/>
+            <h2 class="text-lg font-extrabold times-roman-like" >Socials</h2><br/>
             <ul class="flex mt-3 space-x-4">
                 <li class="bg-[#e6e6e6cf] h-10 w-10 rounded-full flex items-center justify-center shrink-0">
                     <a href="javascript:void(0)">
@@ -500,7 +500,7 @@ const Layout = ({ children }) => {
         <textarea placeholder='Message' rows="6"
             class="w-full rounded-md px-4 bg-gray-100 text-sm pt-3 "></textarea><br/><br/><br/>
         <button type='button'
-            class="text-white bg-black hover:bg-blue-600 font-semibold rounded-md text-sm px-4 py-3 w-full">Send</button>
+            class="text-white times-roman-like bg-black hover:bg-blue-600 font-semibold rounded-md text-sm px-4 py-3 w-full">Send</button>
     </form>
 </div>
 
@@ -518,7 +518,7 @@ const Layout = ({ children }) => {
          
         </div>
         <div className="lg:w-1/4 md:w-1/2 w-full px-4">
-          <h2 className="font-medium text-gray-900 text-base mb-3">
+          <h2 className="font-medium text-gray-900 text-base  mb-3">
             About us
           </h2>
           <nav className="list-none mb-10 flex flex-col space-y-3 text-sm font-normal">

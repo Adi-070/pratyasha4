@@ -7,7 +7,7 @@ const Faq = () => {
   return (
     <section className="dark:bg-gray-100 dark:text-gray-800">
 	<div className="container flex flex-col justify-center times-roman-like px-4 py-8 mx-auto md:p-8">
-		<h2 className="mb-12 text-3xl font-bold leading-none sm:text-5xl">Frequently Asked Questions</h2>
+		<h2 className="mb-12 text-3xl font-bold leading-none sm:text-5xl ">Frequently Asked Questions</h2>
         <h3 className="mb-12 text-base leading-none sm:text-3xl">Find answers to common questions about Pratyasha&apos;s architectural design and construction services.
 </h3>
 		<div className="divide-y dark:divide-gray-300">
@@ -34,16 +34,16 @@ const Faq = () => {
 		</div>
 		
 		<div className="flex flex-col items-center justify-center">
-  <div class="text-2xl font-bold text-black mt-8 mb-8 tight-spacing">
+  <div class="text-2xl times-roman-like font-bold text-black mt-8 mb-8 tight-spacing">
     Still have questions?
   </div>
-  <a href="#" className="text-base mb-8 break-words text-center md:text-left">
+  <a href="#" className="text-base times-roman-like mb-8 break-words text-center md:text-left">
     Contact us for more information.
   </a>
   <div className="flex justify-center"> {/* Center the button */}
     <button onClick={scrollToContact}
       type="button"
-      className="text-black border border-gray-500 focus:ring-4 focus:ring-gray-300 font-medium text-sm px-5 py-2.5 mr-2"
+      className="text-black times-roman-like border border-gray-500 focus:ring-4 focus:ring-gray-300 font-medium text-sm px-5 py-2.5 mr-2"
     >
       Contact us
     </button>

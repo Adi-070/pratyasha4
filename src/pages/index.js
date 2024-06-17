@@ -8,7 +8,7 @@ const HomePage = () => {
     <Layout>
       <section className="hero min-h-screen bg-cover bg-center" >
         <div className="container mx-auto px-4 py-24 flex flex-col justify-center items-center text-center">
-          <h1 className="text-4xl font-bold text-black mb-8 text-justify">
+          <h1 className="text-4xl times-roman-like font-bold text-black mb-8 text-justify">
           Transforming spaces through innovative design and impeccable craftsmanship.
           </h1>
           <p className="text-xl text-black-200 mb-12 times-roman-like text-justify custom-spacing ">
