@@ -145,7 +145,7 @@ const Layout = ({ children }) => {
             </ul>
             <div className="py-2">
               <a
-                href="#"
+                href="#" onClick={scrollToContact}
                 className="block px-4 py-2 text-sm times-roman-like text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white"
               >
                 Contact us
@@ -183,6 +183,7 @@ const Layout = ({ children }) => {
           {children}
         </div>
         <div className="w-full md:w-1/2">
+        <br/><br/><br/>
           <Carousel
           />
         </div>
@@ -200,9 +201,10 @@ const Layout = ({ children }) => {
   
       <div className="absolute inset-0 bg-black opacity-40 "></div>
   <div className="text-white text-4xl lg:text-5xl w-full lg:w-1/2 font-bold mb-8 z-10 pr-4 ml-8 lg:mt-40">
-    <h1 className="text-4xl lg:text-5xl times-roman-like font-bold text-white mt-10 mb-8 ">
-    Transforming Spaces Through Innovative Architectural Design
-    </h1>
+  <h1 className="text-4xl lg:text-5xl times-roman-like font-bold text-white mt-10 mb-8" style={{ lineHeight: '1.25' }}>
+  Transforming Spaces Through Innovative Architectural Design
+</h1>
+
     <p className="text-xl lg:text-2xl text-black-200 mb-12 times-roman-like text-justify ">
     Pratyasha is a premier architectural firm specialising in interior design and construction services. Leveraging our expertise and meticulous attention to detail, we create spaces that inspire and captivate.
     </p>
@@ -223,8 +225,8 @@ const Layout = ({ children }) => {
     <div className="flex flex-col items-center">
       <div className="w-full md:w-3/4 lg:w-1/2 mx-auto text-center">
         <h1 id="one" className="text-base times-roman-like text-center text-black mt-20 md:mt-10">Innovative</h1>
-        
-        <h2 className="text-2xl times-roman-like md:text-4xl font-bold text-black mb-4 md:mb-8">
+        <br/><br/>
+        <h2 className="text-2xl times-roman-like md:text-4xl font-bold text-black mb-4 md:mb-8"style={{ lineHeight: '1.25' }}> 
         Transforming Spaces with Creative Design Solutions
         </h2>
         <br/>
@@ -429,9 +431,9 @@ const Layout = ({ children }) => {
 <button onClick={scrollRight} className="absolute right-10 top-1/2 text-2xl transform -translate-y-1/2 z-10 p-2 bg-gray-300 rounded-full">
         &gt;
       </button>
-</div><br/><br/>
+</div><br/><br/><br/>
 
-<h2 id="three"class="text-3xl times-roman-like md:text-4xl font-sans mb-4 md:mb-8 text-center">
+<h2 id="three"class="text-3xl text-black times-roman-like md:text-4xl font-sans mb-4 md:mb-8 text-center">
     Contact us
 </h2>
 <br/><br/>

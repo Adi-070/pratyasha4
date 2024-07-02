@@ -6,6 +6,7 @@ const Faq = () => {
 	  };
   return (
     <section className="dark:bg-gray-100 dark:text-gray-800">
+		<br/>
 	<div className="container flex flex-col justify-center times-roman-like px-4 py-8 mx-auto md:p-8">
 		<h2 className="mb-12 text-3xl font-bold leading-none sm:text-5xl ">Frequently Asked Questions</h2>
         <h3 className="mb-12 text-base leading-none sm:text-3xl">Find answers to common questions about Pratyasha&apos;s architectural design and construction services.
