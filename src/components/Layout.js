@@ -80,7 +80,7 @@ const Layout = ({ children }) => {
       <img src="/static/Real-logo.png" className="w-10 h-10 mb-2" alt="Interior Icon" style={{width:150,height:100}} />
   
       {/* Navigation (centered) */}
-      <nav className="relative flex justify-end items-center p-4 bg-white">
+      <nav className="relative flex justify-end items-center p-4">
       <div className="md:hidden">
         <button id="hamburger"className="focus:outline-none" onClick={toggleMobileMenu}>
           <svg className="w-6 h-6 text-black" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
