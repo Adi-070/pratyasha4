@@ -157,7 +157,7 @@ const Layout = ({ children }) => {
       <div
     id="mobileMenu"
     ref={hamburgeref}
-    className={`md:hidden absolute top-full right-0 bg-white bg-opacity-100 w-full ${isMobileMenuVisible ? 'block' : 'hidden'}`}
+    className={`md:hidden absolute top-full right-0 w-full ${isMobileMenuVisible ? 'block' : 'hidden'}`}
   >
     <ul className="dropdown-content z-[1] menu p-2 shadow bg-base-100 w-52">
       <li><a href="#" className="times-roman-like block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 bg-white dark:hover:text-white">About Us</a></li>
@@ -249,7 +249,7 @@ const Layout = ({ children }) => {
           <path d="M4.462 19.462c.42-.419.753-.89 1-1.395.453.214.902.435 1.347.662a6.742 6.742 0 0 1-1.286 1.794.75.75 0 0 1-1.06-1.06Z" />
         </svg> */}
         <div className="text-black times-roman-like text-xl mb-4 md:mb-8 text-center md:text-justify">Interior Design Services</div>
-        <p className="times-roman-like text-base text-center md:text-justify break-words">Our interior design services are tailored to suit your unique style and preferences, creating functional and aesthetically pleasing spaces.</p>
+        <p className="text-base text-black text-justify times-roman-like">Our interior design services are tailored to suit your unique style and preferences, creating functional and aesthetically pleasing spaces.</p>
       </div>
       <div className="flex flex-col items-center md:w-1/3">
       <img src="/static/interior.png" className="w-10 h-10 mb-2 " alt="Interior Icon" />
@@ -259,7 +259,7 @@ const Layout = ({ children }) => {
           <path d="M4.462 19.462c.42-.419.753-.89 1-1.395.453.214.902.435 1.347.662a6.742 6.742 0 0 1-1.286 1.794.75.75 0 0 1-1.06-1.06Z" />
         </svg> */}
         <div className="text-black text-xl mb-4 md:mb-8 text-center md:text-justify tight-spacing times-roman-like">Engineering Solutions</div>
-        <p className="times-roman-like text-base text-center md:text-justify break-words">We provide comprehensive engineering solutions, ensuring quality craftsmanship and attention to detail throughout the process.</p>
+        <p className="text-base text-black text-justify times-roman-like">We provide comprehensive engineering solutions, ensuring quality craftsmanship and attention to detail throughout the process.</p>
       </div>
       <div className="flex flex-col items-center md:w-1/3">
       <img src="/static/construction.png" className="w-10 h-10 mb-2" alt="Construction Icon" />
@@ -269,7 +269,9 @@ const Layout = ({ children }) => {
           <path d="M4.462 19.462c.42-.419.753-.89 1-1.395.453.214.902.435 1.347.662a6.742 6.742 0 0 1-1.286 1.794.75.75 0 0 1-1.06-1.06Z" />
         </svg> */}
         <div className="text-black times-roman-like text-xl mb-4 md:mb-4 text-center">Bespoke Architectural Solutions</div>
-        <p className="times-roman-like text-base text-center md:text-justify break-words">Our bespoke architectural solutions are tailored to meet the unique needs and vision of each client, creating spaces that inspire.</p>
+        <p className="text-base text-black text-justify times-roman-like">
+    Our bespoke architectural solutions are tailored to meet the unique needs and vision of each client, creating spaces that inspire.
+    </p>
       </div><br/>
     </div>
     {/* Buttons */}
