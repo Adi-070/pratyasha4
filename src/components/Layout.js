@@ -2,6 +2,7 @@ import React, { useEffect, useState, useRef } from 'react';
 import Image from 'next/image';
 import Faq from './Faq';
 import Carousel from '../components/Carousel';
+import ContactForm from './ContactForm';
 
 if (typeof window !== 'undefined') {
   window.onload = function() {
@@ -490,7 +491,7 @@ const Layout = ({ children }) => {
             </ul>
         </div>
     </div>
-    <form class="ml-auto space-y-4 w-full sm:w-auto">
+    {/* <form class="ml-auto space-y-4 w-full sm:w-auto">
         <input type='text' placeholder='Name'
             class="w-full rounded-md py-3 px-4 bg-gray-100 text-sm" />
         <input type='email' placeholder='Email'
@@ -501,7 +502,8 @@ const Layout = ({ children }) => {
             class="w-full rounded-md px-4 bg-gray-100 text-sm pt-3 "></textarea><br/><br/><br/>
         <button type='button'
             class="text-white times-roman-like bg-black hover:bg-blue-600 font-semibold rounded-md text-sm px-4 py-3 w-full">Send</button>
-    </form>
+    </form> */}
+    <ContactForm/>
 </div>
 
 
