@@ -160,11 +160,11 @@ const Layout = ({ children }) => {
     className={`md:hidden absolute top-full right-0 w-full ${isMobileMenuVisible ? 'block' : 'hidden'}`}
   >
     <ul className="dropdown-content z-[1] menu p-2 shadow bg-base-100 w-52">
-      <li><a href="#" className="times-roman-like block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 bg-white dark:hover:text-white">About Us</a></li>
-      <li><a href="#" onClick={scrollToSection} className="times-roman-like block px-4 py-2 bg-white hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Services</a></li>
-      <li><a href="#" onClick={scrollToArea} className="times-roman-like block px-4 py-2 bg-white hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Portfolio</a></li>
-      <li><a href="#" className="times-roman-like block px-4 py-2 bg-white bg-opacity-100 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">FAQs</a></li>
-      <li><a href="#" className="times-roman-like block px-4 py-2 bg-white bg-opacity-100 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Contact us</a></li>
+      <li><a href="#" className="times-roman-like block px-4 py-2 text-black hover:bg-gray-100 dark:hover:bg-gray-600 bg-white dark:hover:text-white">About Us</a></li>
+      <li><a href="#" onClick={scrollToSection} className="times-roman-like text-black block px-4 py-2 bg-white hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Services</a></li>
+      <li><a href="#" onClick={scrollToArea} className="times-roman-like block text-black px-4 py-2 bg-white hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Portfolio</a></li>
+      <li><a href="#" className="times-roman-like block px-4 py-2 bg-white text-black bg-opacity-100 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">FAQs</a></li>
+      <li><a href="#" className="times-roman-like block px-4 py-2 bg-white text-black bg-opacity-100 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Contact us</a></li>
     </ul>
   </div>
     </nav>
