@@ -345,8 +345,8 @@ const Layout = ({ children }) => {
         />
       </a>
       <div className="p-6">
-        <h5 className="mb-2 text-xl font-medium leading-tight times-roman-like">Card title</h5>
-        <p className="mb-4 text-base times-roman-like">
+        <h5 className="mb-2 text-xl text-black font-medium leading-tight times-roman-like">Card title</h5>
+        <p className="mb-4 text-base text-black times-roman-like">
           This is a longer card with supporting text below as a natural
           lead-in to additional content. This content is a little bit
           longer.
@@ -374,8 +374,8 @@ const Layout = ({ children }) => {
         />
       </a>
       <div className="p-6">
-        <h5 className="mb-2 text-xl font-small leading-tight times-roman-like">Card title</h5>
-        <p className="mb-4 text-base times-roman-like">
+        <h5 className="mb-2 text-xl font-small text-black leading-tight times-roman-like">Card title</h5>
+        <p className="mb-4 text-base text-black times-roman-like">
           This is a longer card with supporting text below as a natural
           lead-in to additional content. This content is a little bit
           longer.
@@ -405,8 +405,8 @@ const Layout = ({ children }) => {
         />
       </a>
       <div className="p-6">
-        <h5 className="mb-2 text-xl font-medium leading-tight times-roman-like">Card title</h5>
-        <p className="mb-4 text-base times-roman-like">
+        <h5 className="mb-2 text-xl font-medium text-black leading-tight times-roman-like">Card title</h5>
+        <p className="mb-4 text-base text-black times-roman-like">
           This is a longer card with supporting text below as a natural
           lead-in to additional content. This content is a little bit
           longer.
