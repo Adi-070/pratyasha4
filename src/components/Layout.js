@@ -92,10 +92,10 @@ const Layout = ({ children }) => {
         <a href="#" className="text-black-800  hover:text-gray-600 font-bold underline-animation">
           About Us
         </a>
-        <a href="#" onClick={scrollToSection} className="text-black-800  hover:text-gray-600 font-bold underline-animation">
+        <a href="#" onClick={scrollToSection} className="text-black hover:text-gray-600 font-bold underline-animation">
           Services
         </a>
-        <a href="#" onClick={scrollToArea} className="text-black-800  hover:text-gray-600 font-bold underline-animation">
+        <a href="#" onClick={scrollToArea} className="text-black hover:text-gray-600 font-bold underline-animation">
           Portfolio
         </a>
         <div className="relative">
@@ -129,10 +129,10 @@ const Layout = ({ children }) => {
             <ul className="py-2 text-sm text-gray-700 times-roman-like dark:text-gray-200" aria-labelledby="dropdown">
               <li>
                 <a href="#" className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">
-                  Dashboard
+                  FAQs
                 </a>
               </li>
-              <li>
+              {/* <li>
                 <a href="#" className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">
                   Settings
                 </a>
@@ -141,14 +141,14 @@ const Layout = ({ children }) => {
                 <a href="#" className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">
                   Earnings
                 </a>
-              </li>
+              </li> */}
             </ul>
             <div className="py-2">
               <a
                 href="#"
                 className="block px-4 py-2 text-sm times-roman-like text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white"
               >
-                Separated link
+                Contact us
               </a>
             </div>
           </div>
@@ -163,10 +163,8 @@ const Layout = ({ children }) => {
       <li><a href="#" className="times-roman-like block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 bg-white dark:hover:text-white">About Us</a></li>
       <li><a href="#" onClick={scrollToSection} className="times-roman-like block px-4 py-2 bg-white hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Services</a></li>
       <li><a href="#" onClick={scrollToArea} className="times-roman-like block px-4 py-2 bg-white hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Portfolio</a></li>
-      <li><a href="#" className="times-roman-like block px-4 py-2 bg-white bg-opacity-100 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Dashboard</a></li>
-      <li><a href="#" className="times-roman-like block px-4 py-2 bg-white bg-opacity-100 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Settings</a></li>
-      <li><a href="#" className="times-roman-like block px-4 py-2 bg-white bg-opacity-100 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Earnings</a></li>
-      <li><a href="#" className="times-roman-like block px-4 py-2 bg-white hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Separated link</a></li>
+      <li><a href="#" className="times-roman-like block px-4 py-2 bg-white bg-opacity-100 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">FAQs</a></li>
+      <li><a href="#" className="times-roman-like block px-4 py-2 bg-white bg-opacity-100 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Contact us</a></li>
     </ul>
   </div>
     </nav>
