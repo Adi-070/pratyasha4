@@ -316,8 +316,8 @@ const Layout = ({ children }) => {
         />
       </a>
       <div className="p-6">
-        <h6 className="mb-2 text-xl font-medium leading-tight times-roman-like">Card title</h6>
-        <p className="mb-4 text-base times-roman-like">
+        <h6 className="mb-2 text-xl font-medium leading-tight text-black times-roman-like">Card title</h6>
+        <p className="mb-4 text-base text-black times-roman-like">
           This is a longer card with supporting text below as a natural
           lead-in to additional content. This content is a little bit
           longer.
