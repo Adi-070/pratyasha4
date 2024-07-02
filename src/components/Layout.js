@@ -89,7 +89,7 @@ const Layout = ({ children }) => {
         </button>
       </div>
       <div className="hidden md:flex space-x-24 justify-center">
-        <a href="#" className="text-black-800  hover:text-gray-600 font-bold underline-animation">
+        <a href="#" className="text-black hover:text-gray-600 font-bold underline-animation">
           About Us
         </a>
         <a href="#" onClick={scrollToSection} className="text-black hover:text-gray-600 font-bold underline-animation">
@@ -102,7 +102,7 @@ const Layout = ({ children }) => {
           <button
             id="dropdown"
             onClick={toggleDropdown}
-            className="text-black-800 hover:text-gray-600 text-center inline-flex items-center font-bold underline-animation"
+            className="text-black hover:text-gray-600 text-center inline-flex items-center font-bold underline-animation"
           >
             More
             <svg
