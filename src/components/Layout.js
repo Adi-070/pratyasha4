@@ -259,7 +259,7 @@ const Layout = ({ children }) => {
           <path d="M4.462 19.462c.42-.419.753-.89 1-1.395.453.214.902.435 1.347.662a6.742 6.742 0 0 1-1.286 1.794.75.75 0 0 1-1.06-1.06Z" />
         </svg> */}
         <div className="text-black text-xl mb-4 md:mb-8 text-center md:text-justify tight-spacing times-roman-like">Engineering Solutions</div>
-        <p className="text-base text-black text-justify times-roman-like">We provide comprehensive engineering solutions, ensuring quality craftsmanship and attention to detail throughout the process.</p>
+        <p className="text-base text-black text-justify times-roman-like">We provide quite comprehensive engineering solutions, ensuring quality craftsmanship and attention to detail throughout the process.</p>
       </div>
       <div className="flex flex-col items-center md:w-1/3">
       <img src="/static/construction.png" className="w-10 h-10 mb-2" alt="Construction Icon" />
