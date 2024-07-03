@@ -24,6 +24,9 @@ const Layout = ({ children }) => {
   const scrollToContact = () => {
     document.getElementById('three').scrollIntoView({ behavior: 'smooth' });
   };
+  const scrollToFAQ = () => {
+		document.getElementById('faq').scrollIntoView({ behavior: 'smooth' });
+	  };
   // State to manage the visibility of the dropdown
   const [isDropdownVisible, setDropdownVisible] = useState(false);
   const [isMobileMenuVisible, setMobileMenuVisible] = useState(false);
@@ -128,7 +131,7 @@ const Layout = ({ children }) => {
           >
             <ul className="py-2 text-sm text-gray-700 times-roman-like dark:text-gray-200" aria-labelledby="dropdown">
               <li>
-                <a href="#" className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">
+                <a href="#" onClick={scrollToFAQ} className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">
                   FAQs
                 </a>
               </li>
@@ -163,8 +166,8 @@ const Layout = ({ children }) => {
       <li><a href="#" className="times-roman-like block px-4 py-2 text-black hover:bg-gray-100 dark:hover:bg-gray-600 bg-white dark:hover:text-white">About Us</a></li>
       <li><a href="#" onClick={scrollToSection} className="times-roman-like text-black block px-4 py-2 bg-white hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Services</a></li>
       <li><a href="#" onClick={scrollToArea} className="times-roman-like block text-black px-4 py-2 bg-white hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Portfolio</a></li>
-      <li><a href="#" className="times-roman-like block px-4 py-2 bg-white text-black bg-opacity-100 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">FAQs</a></li>
-      <li><a href="#" className="times-roman-like block px-4 py-2 bg-white text-black bg-opacity-100 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Contact us</a></li>
+      <li><a href="#" onClick={scrollToFAQ} className="times-roman-like block px-4 py-2 bg-white text-black bg-opacity-100 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">FAQs</a></li>
+      <li><a href="#" onClick={scrollToContact} className="times-roman-like block px-4 py-2 bg-white text-black bg-opacity-100 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Contact us</a></li>
     </ul>
   </div>
     </nav>
@@ -242,7 +245,7 @@ const Layout = ({ children }) => {
     <div className="flex flex-col md:flex-row md:space-x-16 space-y-8 md:space-y-0 w-full justify-center max-w-screen-xl mx-auto px-4">
       {/* Service Cards */}
       <div className="flex flex-col items-center md:w-1/3">
-      <img src="/static/floorplan.png" className="w-10 h-10 mb-2" alt="Interior Icon" />
+      <img src="/static/interior.png" className="w-10 h-10 mb-2" alt="Interior Icon" />
         {/* <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className="w-6 h-6 mb-4">
           <path d="M11.7 2.805a.75.75 0 0 1 .6 0A60.65 60.65 0 0 1 22.83 8.72a.75.75 0 0 1-.231 1.337 49.948 49.948 0 0 0-9.902 3.912l-.003.002c-.114.06-.227.119-.34.18a.75.75 0 0 1-.707 0A50.88 50.88 0 0 0 7.5 12.173v-.224c0-.131.067-.248.172-.311a54.615 54.615 0 0 1 4.653-2.52.75.75 0 0 0-.65-1.352 56.123 56.123 0 0 0-4.78 2.589 1.858 1.858 0 0 0-.859 1.228 49.803 49.803 0 0 0-4.634-1.527.75.75 0 0 1-.231-1.337A60.653 60.653 0 0 1 11.7 2.805Z" />
           <path d="M13.06 15.473a48.45 48.45 0 0 1 7.666-3.282c.134 1.414.22 2.843.255 4.284a.75.75 0 0 1-.46.711 47.87 47.87 0 0 0-8.105 4.342.75.75 0 0 1-.832 0 47.87 47.87 0 0 0-8.104-4.342.75.75 0 0 1-.461-.71c.035-1.442.121-2.87.255-4.286.921.304 1.83.634 2.726.99v1.27a1.5 1.5 0 0 0-.14 2.508c-.09.38-.222.753-.397 1.11.452.213.901.434 1.346.66a6.727 6.727 0 0 0 .551-1.607 1.5 1.5 0 0 0 .14-2.67v-.645a48.549 48.549 0 0 1 3.44 1.667 2.25 2.25 0 0 0 2.12 0Z" />
@@ -252,7 +255,7 @@ const Layout = ({ children }) => {
         <p className="text-base text-black text-justify times-roman-like">Our interior design services are tailored to suit your unique style and preferences, creating functional and aesthetically pleasing spaces.</p>
       </div>
       <div className="flex flex-col items-center md:w-1/3">
-      <img src="/static/interior.png" className="w-10 h-10 mb-2 " alt="Interior Icon" />
+      <img src="/static/floorplan.png" className="w-10 h-10 mb-2 " alt="Interior Icon" />
         {/* <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className="w-6 h-6 mb-4">
           <path d="M11.7 2.805a.75.75 0 0 1 .6 0A60.65 60.65 0 0 1 22.83 8.72a.75.75 0 0 1-.231 1.337 49.948 49.948 0 0 0-9.902 3.912l-.003.002c-.114.06-.227.119-.34.18a.75.75 0 0 1-.707 0A50.88 50.88 0 0 0 7.5 12.173v-.224c0-.131.067-.248.172-.311a54.615 54.615 0 0 1 4.653-2.52.75.75 0 0 0-.65-1.352 56.123 56.123 0 0 0-4.78 2.589 1.858 1.858 0 0 0-.859 1.228 49.803 49.803 0 0 0-4.634-1.527.75.75 0 0 1-.231-1.337A60.653 60.653 0 0 1 11.7 2.805Z" />
           <path d="M13.06 15.473a48.45 48.45 0 0 1 7.666-3.282c.134 1.414.22 2.843.255 4.284a.75.75 0 0 1-.46.711 47.87 47.87 0 0 0-8.105 4.342.75.75 0 0 1-.832 0 47.87 47.87 0 0 0-8.104-4.342.75.75 0 0 1-.461-.71c.035-1.442.121-2.87.255-4.286.921.304 1.83.634 2.726.99v1.27a1.5 1.5 0 0 0-.14 2.508c-.09.38-.222.753-.397 1.11.452.213.901.434 1.346.66a6.727 6.727 0 0 0 .551-1.607 1.5 1.5 0 0 0 .14-2.67v-.645a48.549 48.549 0 0 1 3.44 1.667 2.25 2.25 0 0 0 2.12 0Z" />
@@ -394,10 +397,8 @@ const Layout = ({ children }) => {
   </div>
   </div>
       </div>
+
     </div>
-
-    
-
     <div className="flex flex-col rounded-lg bg-white text-surface shadow-secondary-1 dark:bg-surface-dark dark:text-white min-w-[300px]">
       <a href="#!">
         <img
@@ -444,7 +445,7 @@ const Layout = ({ children }) => {
         <p class="text-sm text-gray-400 mt-3 times-roman-like">Have some big idea or brand to develop and need help? Then reach out we&apos;d love to hear about your project and provide help.</p>
         <div class="mt-12">
             <h2 class="text-lg font-extrabold times-roman-like" >Email</h2><br/><br/>
-            <ul class="mt-3">
+            <ul class="mt-1">
                 <li class="flex items-center">
                     <div class="bg-[#e6e6e6cf] h-10 w-10 rounded-full flex items-center justify-center shrink-0">
                         <svg xmlns="http://www.w3.org/2000/svg" width="20px" height="20px" fill='black'
@@ -456,6 +457,18 @@ const Layout = ({ children }) => {
                     <a href="javascript:void(0)" class="text-black times-roman-like text-sm ml-3">
                         <small class="block ">Mail</small>
                         <strong>pratyashastudio@outlook.com</strong>
+                    </a>
+                </li><br/>
+                     <li class="flex items-center">
+                     <div class="bg-[#e6e6e6cf] h-10 w-10 rounded-full flex items-center justify-center shrink-0">
+    <svg xmlns="http://www.w3.org/2000/svg" width="20px" height="20px" fill='black' viewBox="0 0 24 24">
+        <path d="M6.62 10.79a15.091 15.091 0 0 0 6.59 6.59l2.2-2.2a1 1 0 0 1 1.1-.22 10.27 10.27 0 0 0 3.24.52 1 1 0 0 1 1 1v3.5a1 1 0 0 1-1 1A17.93 17.93 0 0 1 3 4.5a1 1 0 0 1 1-1h3.5a1 1 0 0 1 1 1 10.27 10.27 0 0 0 .52 3.24 1 1 0 0 1-.22 1.1l-2.2 2.2z"/>
+    </svg>
+</div>
+
+                    <a href="javascript:void(0)" class="text-black times-roman-like text-sm ml-3">
+                        <small class="block ">Call</small>
+                        <strong>+91 9663031560</strong>
                     </a>
                 </li>
             </ul>
@@ -478,6 +491,13 @@ const Layout = ({ children }) => {
                             <path
                                 d="M111.898 160.664H15.5c-8.285 0-15 6.719-15 15V497c0 8.285 6.715 15 15 15h96.398c8.286 0 15-6.715 15-15V175.664c0-8.281-6.714-15-15-15zM96.898 482H30.5V190.664h66.398zM63.703 0C28.852 0 .5 28.352.5 63.195c0 34.852 28.352 63.2 63.203 63.2 34.848 0 63.195-28.352 63.195-63.2C126.898 28.352 98.551 0 63.703 0zm0 96.395c-18.308 0-33.203-14.891-33.203-33.2C30.5 44.891 45.395 30 63.703 30c18.305 0 33.195 14.89 33.195 33.195 0 18.309-14.89 33.2-33.195 33.2zm289.207 62.148c-22.8 0-45.273 5.496-65.398 15.777-.684-7.652-7.11-13.656-14.942-13.656h-96.406c-8.281 0-15 6.719-15 15V497c0 8.285 6.719 15 15 15h96.406c8.285 0 15-6.715 15-15V320.266c0-22.735 18.5-41.23 41.235-41.23 22.734 0 41.226 18.495 41.226 41.23V497c0 8.285 6.719 15 15 15h96.403c8.285 0 15-6.715 15-15V302.066c0-79.14-64.383-143.523-143.524-143.523zM466.434 482h-66.399V320.266c0-39.278-31.953-71.23-71.226-71.23-39.282 0-71.239 31.952-71.239 71.23V482h-66.402V190.664h66.402v11.082c0 5.77 3.309 11.027 8.512 13.524a15.01 15.01 0 0 0 15.875-1.82c20.313-16.294 44.852-24.907 70.953-24.907 62.598 0 113.524 50.926 113.524 113.523zm0 0"
                                 data-original="#000000" />
+                        </svg>
+                    </a>
+                </li>
+                <li class="bg-[#e6e6e6cf] h-10 w-10 rounded-full flex items-center justify-center shrink-0">
+                    <a href="https://x.com/PratyashaDesign">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20px" height="20px" fill='black' viewBox="0 0 24 24">
+                        <path d="M12.6.75h2.454l-5.36 6.142L16 15.25h-4.937l-3.867-5.07-4.425 5.07H.316l5.733-6.57L0 .75h5.063l3.495 4.633L12.601.75Zm-.86 13.028h1.36L4.323 2.145H2.865z"/>
                         </svg>
                     </a>
                 </li>
@@ -516,9 +536,13 @@ const Layout = ({ children }) => {
     <div className="container px-5 py-24 mx-auto flex md:items-center lg:items-start md:flex-row md:flex-nowrap flex-wrap flex-col">
       <div className="flex-grow flex flex-wrap -mb-10 md:mt-0 mt-10 md:text-left text-center">
         <div className="lg:w-1/4 md:w-1/2 w-full px-4">
-          <h2 className="font-bold text-gray-900 text-xl mb-3">
+          {/* <h2 className="font-bold text-gray-900 text-xl mb-3">
             Logo
-          </h2>
+          </h2> */}
+          <div className="flex justify-center items-center">
+            <img src="/static/Real-logo.png" className="mb-3 w-24 h-16" alt="Interior Icon" />
+          </div>
+            <br/>
          
         </div>
         <div className="lg:w-1/4 md:w-1/2 w-full px-4">
