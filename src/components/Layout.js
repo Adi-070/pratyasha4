@@ -75,15 +75,12 @@ const Layout = ({ children }) => {
 
   return (
     <div className="flex flex-col min-h-screen bg-white">
-    <header className="flex justify-between items-center p-4">
-      {/* Logo */}
-      {/* <a className="text-xl font-bold text-black pl-4" href="#">
-        Logo
-      </a> */}
+    <header className="flex  justify-between items-center p-4">
+    
       <img src="/static/Real-logo.png" className="w-10 h-10 mb-2" alt="Interior Icon" style={{width:150,height:100}} />
   
       {/* Navigation (centered) */}
-      <nav className="relative flex justify-end items-center p-4">
+      <nav className="relative flex justify-center items-center p-4">
       <div className="md:hidden">
         <button id="hamburger"className="focus:outline-none" onClick={toggleMobileMenu}>
           <svg className="w-6 h-6 text-black" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
@@ -135,16 +132,7 @@ const Layout = ({ children }) => {
                   FAQs
                 </a>
               </li>
-              {/* <li>
-                <a href="#" className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">
-                  Settings
-                </a>
-              </li>
-              <li>
-                <a href="#" className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">
-                  Earnings
-                </a>
-              </li> */}
+            
             </ul>
             <div className="py-2">
               <a
@@ -172,15 +160,22 @@ const Layout = ({ children }) => {
   </div>
     </nav>
       {/* Get started button */}
-      <button type="button" className="text-white times-roman-like bg-black focus:outline-none focus:ring-4 focus:ring-gray-300 font-medium text-sm px-5 py-2.5 mr-2 mb-2">
+      <button type="button" onClick={scrollToSection} disabled className="text-white text-sm px-5 py-2.5 mr-2 mb-2">
         Get started
       </button>
+      {/* <div className="md:hidden">
+        <button id="hamburger"className="focus:outline-none" onClick={toggleMobileMenu}>
+          <svg className="w-6 h-6 text-black" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h16M4 18h16"></path>
+          </svg>
+        </button>
+      </div> */}
     </header>
   
     <hr className="border-t border-black w-full mx-auto -mt-6" />
   
     <div className="flex-grow p-4">
-      <div className="flex flex-col md:flex-row space-y-8 md:space-y-0 md:space-x-40 max-w-screen-xl mx-auto px-4">
+      <div className="flex flex-col md:flex-row  space-y-8 md:space-y-0 md:space-x-40 px-4">
         <div className="w-full md:w-1/2">
           {/* Left side content */}
           {children}
@@ -204,11 +199,11 @@ const Layout = ({ children }) => {
   
       <div className="absolute inset-0 bg-black opacity-40 "></div>
   <div className="text-white text-4xl lg:text-5xl w-full lg:w-1/2 font-bold mb-8 z-10 pr-4 ml-8 lg:mt-40">
-  <h1 className="text-4xl lg:text-5xl times-roman-like font-bold text-white mt-10 mb-8" style={{ lineHeight: '1.25' }}>
+  <h1 className="text-4xl lg:text-5xl times-roman-like font-bold text-white  mt-10 mb-8" style={{ lineHeight: '1.25' }}>
   Transforming Spaces Through Innovative Architectural Design
 </h1>
 
-    <p className="text-xl lg:text-2xl text-black-200 mb-12 times-roman-like text-justify ">
+    <p className="text-xl lg:text-2xl text-black-200 mb-12  times-roman-like text-justify ">
     Pratyasha is a premier architectural firm specialising in interior design and construction services. Leveraging our expertise and meticulous attention to detail, we create spaces that inspire and captivate.
     </p>
     <div className="flex flex-wrap times-roman-like justify-center lg:justify-start">
@@ -224,7 +219,7 @@ const Layout = ({ children }) => {
   <br/><br/><br/>
     {/* Innovative Section */}
     <div className="flex justify-center items-center h-screen relative ">
-  <div className="font-bold mb-8 w-full max-w-screen-lg mx-auto px-4">
+  <div className="font-bold mb-8 w-full  mx-auto px-4">
     <div className="flex flex-col items-center">
       <div className="w-full md:w-3/4 lg:w-1/2 mx-auto text-center">
         <h1 id="one" className="text-base times-roman-like text-center text-black mt-20 md:mt-10">Innovative</h1>
@@ -242,41 +237,25 @@ const Layout = ({ children }) => {
 
   
 
-    <div className="flex flex-col md:flex-row md:space-x-16 space-y-8 md:space-y-0 w-full justify-center max-w-screen-xl mx-auto px-4">
-      {/* Service Cards */}
-      <div className="flex flex-col items-center md:w-1/3">
-      <img src="/static/interior.png" className="w-10 h-10 mb-2" alt="Interior Icon" />
-        {/* <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className="w-6 h-6 mb-4">
-          <path d="M11.7 2.805a.75.75 0 0 1 .6 0A60.65 60.65 0 0 1 22.83 8.72a.75.75 0 0 1-.231 1.337 49.948 49.948 0 0 0-9.902 3.912l-.003.002c-.114.06-.227.119-.34.18a.75.75 0 0 1-.707 0A50.88 50.88 0 0 0 7.5 12.173v-.224c0-.131.067-.248.172-.311a54.615 54.615 0 0 1 4.653-2.52.75.75 0 0 0-.65-1.352 56.123 56.123 0 0 0-4.78 2.589 1.858 1.858 0 0 0-.859 1.228 49.803 49.803 0 0 0-4.634-1.527.75.75 0 0 1-.231-1.337A60.653 60.653 0 0 1 11.7 2.805Z" />
-          <path d="M13.06 15.473a48.45 48.45 0 0 1 7.666-3.282c.134 1.414.22 2.843.255 4.284a.75.75 0 0 1-.46.711 47.87 47.87 0 0 0-8.105 4.342.75.75 0 0 1-.832 0 47.87 47.87 0 0 0-8.104-4.342.75.75 0 0 1-.461-.71c.035-1.442.121-2.87.255-4.286.921.304 1.83.634 2.726.99v1.27a1.5 1.5 0 0 0-.14 2.508c-.09.38-.222.753-.397 1.11.452.213.901.434 1.346.66a6.727 6.727 0 0 0 .551-1.607 1.5 1.5 0 0 0 .14-2.67v-.645a48.549 48.549 0 0 1 3.44 1.667 2.25 2.25 0 0 0 2.12 0Z" />
-          <path d="M4.462 19.462c.42-.419.753-.89 1-1.395.453.214.902.435 1.347.662a6.742 6.742 0 0 1-1.286 1.794.75.75 0 0 1-1.06-1.06Z" />
-        </svg> */}
+    <div className="flex flex-col md:flex-row md:space-x-24 space-y-8 md:space-y-0 w-full justify-center max-w-screen-xl mx-auto px-4">
+    {/* Service Cards */}
+    <div className="flex flex-col items-center md:w-1/3">
+        <img src="/static/interior.png" className="w-10 h-10 mb-2" alt="Interior Icon" />
         <div className="text-black times-roman-like text-xl mb-4 md:mb-8 text-center md:text-justify">Interior Design Services</div>
-        <p className="text-base text-black text-justify times-roman-like">Our interior design services are tailored to suit your unique style and preferences, creating functional and aesthetically pleasing spaces.</p>
-      </div>
-      <div className="flex flex-col items-center md:w-1/3">
-      <img src="/static/floorplan.png" className="w-10 h-10 mb-2 " alt="Interior Icon" />
-        {/* <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className="w-6 h-6 mb-4">
-          <path d="M11.7 2.805a.75.75 0 0 1 .6 0A60.65 60.65 0 0 1 22.83 8.72a.75.75 0 0 1-.231 1.337 49.948 49.948 0 0 0-9.902 3.912l-.003.002c-.114.06-.227.119-.34.18a.75.75 0 0 1-.707 0A50.88 50.88 0 0 0 7.5 12.173v-.224c0-.131.067-.248.172-.311a54.615 54.615 0 0 1 4.653-2.52.75.75 0 0 0-.65-1.352 56.123 56.123 0 0 0-4.78 2.589 1.858 1.858 0 0 0-.859 1.228 49.803 49.803 0 0 0-4.634-1.527.75.75 0 0 1-.231-1.337A60.653 60.653 0 0 1 11.7 2.805Z" />
-          <path d="M13.06 15.473a48.45 48.45 0 0 1 7.666-3.282c.134 1.414.22 2.843.255 4.284a.75.75 0 0 1-.46.711 47.87 47.87 0 0 0-8.105 4.342.75.75 0 0 1-.832 0 47.87 47.87 0 0 0-8.104-4.342.75.75 0 0 1-.461-.71c.035-1.442.121-2.87.255-4.286.921.304 1.83.634 2.726.99v1.27a1.5 1.5 0 0 0-.14 2.508c-.09.38-.222.753-.397 1.11.452.213.901.434 1.346.66a6.727 6.727 0 0 0 .551-1.607 1.5 1.5 0 0 0 .14-2.67v-.645a48.549 48.549 0 0 1 3.44 1.667 2.25 2.25 0 0 0 2.12 0Z" />
-          <path d="M4.462 19.462c.42-.419.753-.89 1-1.395.453.214.902.435 1.347.662a6.742 6.742 0 0 1-1.286 1.794.75.75 0 0 1-1.06-1.06Z" />
-        </svg> */}
-        <div className="text-black text-xl mb-4 md:mb-8 text-center md:text-justify tight-spacing times-roman-like">Engineering Solutions</div>
-        <p className="text-base text-black text-justify times-roman-like">We provide quite comprehensive engineering solutions, ensuring quality craftsmanship and attention to detail throughout the process.</p>
-      </div>
-      <div className="flex flex-col items-center md:w-1/3">
-      <img src="/static/construction.png" className="w-10 h-10 mb-2" alt="Construction Icon" />
-        {/* <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className="w-6 h-6 mb-4">
-          <path d="M11.7 2.805a.75.75 0 0 1 .6 0A60.65 60.65 0 0 1 22.83 8.72a.75.75 0 0 1-.231 1.337 49.948 49.948 0 0 0-9.902 3.912l-.003.002c-.114.06-.227.119-.34.18a.75.75 0 0 1-.707 0A50.88 50.88 0 0 0 7.5 12.173v-.224c0-.131.067-.248.172-.311a54.615 54.615 0 0 1 4.653-2.52.75.75 0 0 0-.65-1.352 56.123 56.123 0 0 0-4.78 2.589 1.858 1.858 0 0 0-.859 1.228 49.803 49.803 0 0 0-4.634-1.527.75.75 0 0 1-.231-1.337A60.653 60.653 0 0 1 11.7 2.805Z" />
-          <path d="M13.06 15.473a48.45 48.45 0 0 1 7.666-3.282c.134 1.414.22 2.843.255 4.284a.75.75 0 0 1-.46.711 47.87 47.87 0 0 0-8.105 4.342.75.75 0 0 1-.832 0 47.87 47.87 0 0 0-8.104-4.342.75.75 0 0 1-.461-.71c.035-1.442.121-2.87.255-4.286.921.304 1.83.634 2.726.99v1.27a1.5 1.5 0 0 0-.14 2.508c-.09.38-.222.753-.397 1.11.452.213.901.434 1.346.66a6.727 6.727 0 0 0 .551-1.607 1.5 1.5 0 0 0 .14-2.67v-.645a48.549 48.549 0 0 1 3.44 1.667 2.25 2.25 0 0 0 2.12 0Z" />
-          <path d="M4.462 19.462c.42-.419.753-.89 1-1.395.453.214.902.435 1.347.662a6.742 6.742 0 0 1-1.286 1.794.75.75 0 0 1-1.06-1.06Z" />
-        </svg> */}
-        <div className="text-black times-roman-like text-xl mb-4 md:mb-4 text-center">Bespoke Architectural Solutions</div>
-        <p className="text-base text-black text-justify times-roman-like">
-    Our bespoke architectural solutions are tailored to meet the unique needs and vision of each client, creating spaces that inspire.
-    </p>
-      </div><br/>
+        <p className="text-base text-black md:text-justify times-roman-like">Our interior design services are tailored to suit your unique style and preferences, creating functional and aesthetically pleasing spaces.</p>
     </div>
+    <div className="flex flex-col items-center md:w-1/3">
+        <img src="/static/floorplan.png" className="w-10 h-10 mb-2" alt="Interior Icon" />
+        <div className="text-black text-xl mb-4 md:mb-8 text-center md:text-justify tight-spacing times-roman-like">Engineering Solutions</div>
+        <p className="text-base text-black md:text-justify times-roman-like">We provide quite comprehensive engineering solutions, ensuring quality craftsmanship and attention to detail throughout the process.</p>
+    </div>
+    <div className="flex flex-col items-center md:w-1/3">
+        <img src="/static/construction.png" className="w-10 h-10 mb-2" alt="Construction Icon" />
+        <div className="text-black times-roman-like text-xl mb-4 md:mb-8 text-center">Bespoke Architectural Solutions</div>
+        <p className="text-base text-black md:text-justify times-roman-like">Our bespoke architectural solutions are tailored to meet the unique needs and vision of each client, creating spaces that inspire.</p>
+    </div>
+</div>
+
     {/* Buttons */}
     <div className="flex flex-col justify-center items-center md:mt-4 space-y-4 md:space-y-0 md:space-x-4">
   <button type="button" className="text-black times-roman-like border border-gray-500 focus:ring-4 focus:ring-gray-300 font-medium text-sm px-5 py-2.5 md:mb-2">
@@ -306,9 +285,12 @@ const Layout = ({ children }) => {
   
 <button
         onClick={scrollLeft}
-        className="absolute left-10 top-1/2 text-2xl transform -translate-y-1/2 z-10 p-2 bg-gray-300 rounded-full"
+        className="absolute left-8 top-1/2  z-10 p-2"
       >
-        &lt;
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className="size-10">
+  <path fillRule="evenodd" d="M12 2.25c-5.385 0-9.75 4.365-9.75 9.75s4.365 9.75 9.75 9.75 9.75-4.365 9.75-9.75S17.385 2.25 12 2.25Zm-4.28 9.22a.75.75 0 0 0 0 1.06l3 3a.75.75 0 1 0 1.06-1.06l-1.72-1.72h5.69a.75.75 0 0 0 0-1.5h-5.69l1.72-1.72a.75.75 0 0 0-1.06-1.06l-3 3Z" clipRule="evenodd" />
+</svg>
+
       </button>
 <div className="flex overflow-x-auto scrollbar-hide space-x-4 px-10" ref={scrollContainerRef}>
   <div className="flex space-x-20">
@@ -429,8 +411,11 @@ const Layout = ({ children }) => {
     </div>
   </div>
 </div>
-<button onClick={scrollRight} className="absolute right-10 top-1/2 text-2xl transform -translate-y-1/2 z-10 p-2 bg-gray-300 rounded-full">
-        &gt;
+<button onClick={scrollRight} className="absolute right-7 top-1/2  z-10 p-2 ">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className="size-10">
+  <path fillRule="evenodd" d="M12 2.25c-5.385 0-9.75 4.365-9.75 9.75s4.365 9.75 9.75 9.75 9.75-4.365 9.75-9.75S17.385 2.25 12 2.25Zm4.28 10.28a.75.75 0 0 0 0-1.06l-3-3a.75.75 0 1 0-1.06 1.06l1.72 1.72H8.25a.75.75 0 0 0 0 1.5h5.69l-1.72 1.72a.75.75 0 1 0 1.06 1.06l3-3Z" clipRule="evenodd" />
+</svg>
+
       </button>
 </div><br/><br/><br/>
 
@@ -438,7 +423,7 @@ const Layout = ({ children }) => {
     Contact us
 </h2>
 <br/><br/>
-<div class="grid sm:grid-cols-2 items-center gap-16 my-6 mx-auto max-w-7xl bg-white text-[#333] font-[sans-serif] w-full px-4">
+<div class="grid sm:grid-cols-2 items-center gap-16 my-6 mx-auto md:ml-14 max-w-7xl bg-white text-[#333] font-[sans-serif] w-full px-4">
     <div>
       
         <h1 class="text-3xl font-extrabold times-roman-like">Let&apos;s Talk</h1><br/><br/>

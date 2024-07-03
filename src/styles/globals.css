@@ -65,3 +65,8 @@ body {
 .underline-animation:hover::after {
   transform: scaleX(1);
 }
+.custom-carousel-container {
+  width: 70%; /* Adjust the width as needed */
+  max-width: 800px; /* Optional: Set a maximum width */
+  margin: 0 auto; /* Center the carousel horizontally */
+}

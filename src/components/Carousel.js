@@ -32,7 +32,7 @@ const Carousel = () => {
   }, []);
 
   return (
-    <div className="relative w-full md:w-5/6 lg:w-4/5 mx-auto mt-20">
+    <div className="relative w-full md:w-5/6 lg:w-4/5 mt-20">
       <div className="relative h-96 overflow-hidden">
         {images.map((image, index) => (
           <div
@@ -45,7 +45,7 @@ const Carousel = () => {
               src={image.src}
               alt={image.alt}
               fill="true"
-              objectFit="cover"
+              
             />
           </div>
         ))}
