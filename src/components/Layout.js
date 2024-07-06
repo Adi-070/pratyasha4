@@ -9,6 +9,38 @@ if (typeof window !== 'undefined') {
     document.getElementById("autoplay").play();
   }
 }
+const teamMembers = [
+  {
+    name: 'John Doe',
+    title: 'Architect',
+    description: 'With over 10 years of experience, John brings a unique perspective to every project.',
+  },
+  {
+    name: 'Jane Smith',
+    title: 'Interior Designer',
+    description: 'Jane\'s attention to detail and passion for aesthetics make her designs truly exceptional.',
+  },
+  {
+    name: 'Michael Johnson',
+    title: 'Construction Manager',
+    description: 'Michael\'s expertise in project management ensures smooth execution from start to finish.',
+  },
+  {
+    name: 'Emily Davis',
+    title: 'Interior Decorator',
+    description: 'Emily\'s creative flair and ability to transform spaces make her an invaluable asset.',
+  },
+  {
+    name: 'David Wilson',
+    title: 'Architectural Designer',
+    description: 'David\'s innovative designs push boundaries and create spaces that inspire.',
+  },
+  {
+    name: 'Full name',
+    title: 'Job title',
+    description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros elementum tristique.',
+  },
+];
 const Layout = ({ children }) => {
   
   const dropdownRef = useRef(null);
@@ -27,6 +59,9 @@ const Layout = ({ children }) => {
   const scrollToFAQ = () => {
 		document.getElementById('faq').scrollIntoView({ behavior: 'smooth' });
 	  };
+    const scrollToTeam = () => {
+      document.getElementById('team').scrollIntoView({ behavior: 'smooth' });
+      };
   // State to manage the visibility of the dropdown
   const [isDropdownVisible, setDropdownVisible] = useState(false);
   const [isMobileMenuVisible, setMobileMenuVisible] = useState(false);
@@ -72,6 +107,23 @@ const Layout = ({ children }) => {
       document.removeEventListener('mousedown', handleClickOutside);
     };
   }, [isDropdownVisible, isMobileMenuVisible]);
+
+  // useEffect(() => {
+  //   const scrollContainer = scrollContainerRef.current;
+  //   let scrollAmount = 0;
+
+  //   const scrollInterval = setInterval(() => {
+  //     if (scrollContainer) {
+  //       scrollAmount += 1;
+  //       scrollContainer.scrollLeft = scrollAmount;
+  //       if (scrollAmount >= scrollContainer.scrollWidth - scrollContainer.clientWidth) {
+  //         scrollAmount = 0;
+  //       }
+  //     }
+  //   }, 50); 
+
+  //   return () => clearInterval(scrollInterval);
+  // }, []);
 
   return (
     <div className="flex flex-col min-h-screen bg-white">
@@ -132,7 +184,11 @@ const Layout = ({ children }) => {
                   FAQs
                 </a>
               </li>
-            
+              <li>
+                <a href="#" onClick={scrollToTeam} className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">
+                  Our Team
+                </a>
+              </li>
             </ul>
             <div className="py-2">
               <a
@@ -156,6 +212,7 @@ const Layout = ({ children }) => {
       <li><a href="#" onClick={scrollToArea} className="times-roman-like block text-black px-4 py-2 bg-white hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Portfolio</a></li>
       <li><a href="#" onClick={scrollToFAQ} className="times-roman-like block px-4 py-2 bg-white text-black bg-opacity-100 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">FAQs</a></li>
       <li><a href="#" onClick={scrollToContact} className="times-roman-like block px-4 py-2 bg-white text-black bg-opacity-100 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Contact</a></li>
+      <li><a href="#" onClick={scrollToTeam} className="times-roman-like block px-4 py-2 bg-white text-black bg-opacity-100 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Our Team</a></li>
     </ul>
   </div>
     </nav>
@@ -515,6 +572,37 @@ const Layout = ({ children }) => {
 
 
   <Faq/>
+  <section className="text-center py-20">
+      <h2 className="text-lg font-semibold uppercase text-gray-500 mb-2">Innovative</h2>
+      <h3 id="team" className="text-4xl font-bold mb-6">Meet Our Team</h3>
+      <p className="max-w-xl mx-auto mb-16 text-gray-600">
+        Get to know the talented individuals behind Pratyasha.
+      </p>
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 px-4 md:px-0">
+        {teamMembers.map((member, index) => (
+          <div key={index} className="bg-white p-6 rounded-lg shadow-lg text-center">
+            <div className="w-24 h-24 bg-gray-200 rounded-full mx-auto mb-4">
+              {/* <img src='/static/PLAN.jpg'/> */}
+            </div>
+            <h4 className="text-xl font-semibold mb-2">{member.name}</h4>
+            <p className="text-gray-500 mb-4">{member.title}</p>
+            <p className="text-gray-600 mb-4">{member.description}</p>
+            <div className="flex justify-center space-x-4">
+              <a href="#" className="text-gray-400 hover:text-gray-600">
+                <i className="fab fa-linkedin-in"></i>
+              </a>
+              <a href="#" className="text-gray-400 hover:text-gray-600">
+                <i className="fab fa-twitter"></i>
+              </a>
+              <a href="#" className="text-gray-400 hover:text-gray-600">
+                <i className="fab fa-dribbble"></i>
+               
+              </a>
+            </div>
+          </div>
+        ))}
+      </div>
+    </section>
     {/* Footer */}
     <div>
   <footer className="text-gray-800 w-full mx-auto inter md:pt-15">
