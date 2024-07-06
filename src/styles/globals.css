@@ -70,3 +70,8 @@ body {
   max-width: 800px; /* Optional: Set a maximum width */
   margin: 0 auto; /* Center the carousel horizontally */
 }
+@media (max-width: 768px) { /* Example for 'md' breakpoint */
+  .custom-height {
+    margin-top: 20px; /* Adjust width for screens smaller than 'md' */
+  }
+}

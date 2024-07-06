@@ -279,9 +279,9 @@ const Layout = ({ children }) => {
   <div className="font-bold mb-8 w-full  mx-auto px-4">
     <div className="flex flex-col items-center">
       <div className="w-full md:w-3/4 lg:w-1/2 mx-auto text-center">
-        <h1 id="one" className="text-base times-roman-like text-center text-black mt-20 md:mt-10">Innovative</h1>
+        {/* <h1 id="one" className="text-base times-roman-like text-center text-black mt-20 md:mt-10">Innovative</h1> */}
         <br/><br/>
-        <h2 className="text-2xl times-roman-like md:text-4xl font-bold text-black mb-4 md:mb-8"style={{ lineHeight: '1.25' }}> 
+        <h2 id="one" className="text-2xl times-roman-like md:text-4xl font-bold text-black mb-4 md:mb-8"style={{ lineHeight: '1.25' }}> 
         Transforming Spaces with Creative Design Solutions
         </h2>
         <br/>
