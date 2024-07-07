@@ -304,8 +304,8 @@ const Layout = ({ children }) => {
     <div className="flex flex-col items-center">
       <div className="w-full md:w-3/4 lg:w-1/2 mx-auto text-center">
         {/* <h1 id="one" className="text-base times-roman-like text-center text-black mt-20 md:mt-10">Innovative</h1> */}
-        <br/><br/>
-        <h2 id="one" className="text-2xl times-roman-like md:text-4xl font-bold text-black mb-4 md:mb-8"style={{ lineHeight: '1.25' }}> 
+        <br/><br/><br/><br/>
+        <h2 id="one" className="text-2xl mt-16 times-roman-like md:text-4xl font-bold text-black mb-4 md:mb-8"style={{ lineHeight: '1.25' }}> 
         Transforming Spaces with Creative Design Solutions
         </h2>
         <br/>
@@ -318,7 +318,7 @@ const Layout = ({ children }) => {
 
   
 
-    <div className="flex flex-col md:flex-row md:space-x-24 space-y-8 md:space-y-0 w-full justify-center max-w-screen-xl mx-auto px-4">
+    <div className="flex flex-col md:flex-row md:space-x-24 space-y-8 md:space-y-0 w-full justify-center mx-auto px-4">
     {/* Service Cards */}
     <div className="flex flex-col items-center md:w-1/3">
         <img src="/static/interior.png" className="w-10 h-10 mb-2" alt="Interior Icon" />
@@ -338,8 +338,8 @@ const Layout = ({ children }) => {
 </div>
 
     {/* Buttons */}
-    <div className="flex flex-col justify-center items-center md:mt-4 space-y-4 md:space-y-0 md:space-x-4">
-  <button type="button" className="text-black times-roman-like border border-gray-500 focus:ring-4 focus:ring-gray-300 font-medium text-sm px-5 py-2.5 md:mb-2">
+    <div className="flex flex-col mt-4 justify-center items-center md:mt-4 space-y-4 md:space-y-0 md:space-x-4">
+  <button type="button" className="text-black times-roman-like border border-gray-500 focus:ring-4 focus:ring-gray-300 mb-10 font-medium text-sm px-5 py-2.5 md:mb-2">
     Learn more
   </button>
 </div>
@@ -349,9 +349,9 @@ const Layout = ({ children }) => {
 
 
 <div className="flex justify-center mt-14 items-center">
-  <div className="w-full mt-12 md:w-3/4 lg:w-1/2 mx-auto text-center"> {/* Adjust width for smaller screens */}
-    <h1 id="two" className="text-lg md:text-base text-black mt-12 md:mb-8 times-roman-like">Projects</h1>
-    <h2 className="text-3xl times-roman-like times md:text-4xl font-bold text-black mb-4 md:mb-8"><br/>
+  <div className="w-full mt-14 md:w-3/4 lg:w-1/2 mx-auto text-center"> {/* Adjust width for smaller screens */}
+    <h1  className="text-lg md:text-base  mt-12 md:mb-8  text-white times-roman-like">P</h1>
+    <h2 id="two" className="text-2xl times-roman-like times md:text-4xl font-bold text-black mb-4 md:mb-8"><br/><br/>
       Experience Our Expertise
     </h2>
     <p className="text-lg md:text-xl text-black times-roman-like mb-4 md:mb-10">
@@ -597,7 +597,7 @@ const Layout = ({ children }) => {
 
   <Faq/>
   <section className="text-center py-20">
-      <h2 className="text-lg font-semibold uppercase text-gray-500 mb-2">Innovative</h2>
+      {/* <h2 className="text-lg font-semibold uppercase text-gray-500 mb-2">Innovative</h2> */}
       <h3 id="team" className="text-4xl font-bold mb-6">Meet Our Team</h3>
       <p className="max-w-xl mx-auto mb-16 text-gray-600">
         Get to know the talented individuals behind Pratyasha.

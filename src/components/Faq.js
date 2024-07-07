@@ -9,7 +9,7 @@ const Faq = () => {
 		<br/>
 	<div className="container flex flex-col justify-center times-roman-like px-4 py-8  md:p-8">
 		<h2 id="faq"className="mb-12 text-3xl font-bold leading-none sm:text-5xl ">Frequently Asked Questions</h2>
-        <h3 className="mb-12 text-base leading-none sm:text-3xl">Find answers to common questions about Pratyasha&apos;s architectural design and construction services.
+        <h3 className="mb-12 text-base leading-none sm:text-3xl"style={{ lineHeight: '1.5' }}>Find answers to common questions about Pratyasha&apos;s architectural design and construction services.
 </h3>
 		<div className="divide-y dark:divide-gray-300">
 			<div className="py-6 space-y-2 md:grid md:grid-cols-12 md:gap-8 md:space-y-0">
