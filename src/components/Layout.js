@@ -47,6 +47,12 @@ const Layout = ({ children }) => {
   const scrollContainerRef = useRef(null);
   const hamburgeref = useRef(null);
 
+    const [isOpen, setIsOpen] = useState(false);
+
+   const toggleMenu = () => {
+    setIsOpen(!isOpen);
+   };
+
   const scrollToSection = () => {
     document.getElementById('one').scrollIntoView({ behavior: 'smooth' });
   };
@@ -206,16 +212,34 @@ const Layout = ({ children }) => {
     ref={hamburgeref}
     className={`md:hidden absolute top-full right-0 w-full ${isMobileMenuVisible ? 'block' : 'hidden'}`}
   >
-    <ul className="dropdown-content z-[3] menu p-2 shadow bg-base-100 w-40">
+    {/* <ul className="dropdown-content z-[3] menu p-2 shadow bg-base-100 w-40">
       <li><a href="#" className="times-roman-like block px-4 py-2 text-black hover:bg-gray-100 dark:hover:bg-gray-600 bg-white dark:hover:text-white">About Us</a></li>
       <li><a href="#" onClick={scrollToSection} className="times-roman-like text-black block px-4 py-2 bg-white hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Services</a></li>
       <li><a href="#" onClick={scrollToArea} className="times-roman-like block text-black px-4 py-2 bg-white hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Portfolio</a></li>
       <li><a href="#" onClick={scrollToFAQ} className="times-roman-like block px-4 py-2 bg-white text-black bg-opacity-100 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">FAQs</a></li>
       <li><a href="#" onClick={scrollToContact} className="times-roman-like block px-4 py-2 bg-white text-black bg-opacity-100 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Contact</a></li>
       <li><a href="#" onClick={scrollToTeam} className="times-roman-like block px-4 py-2 bg-white text-black bg-opacity-100 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Our Team</a></li>
-    </ul>
+    </ul> */}
   </div>
     </nav>
+    
+    <div className={`fixed top-0 right-0 w-full h-full bg-gray-200 flex flex-col items-center justify-center z-50 transform ${isMobileMenuVisible ? 'translate-x-0' : 'translate-x-full'} transition-transform duration-500 ease-in-out`}>
+  <button className="absolute top-4 right-4 text-gray-800 focus:outline-none" onClick={toggleMenu}>
+    <div className="w-6 h-6 flex flex-col justify-center items-center">
+      <div className="w-5 h-0.5 bg-gray-800 transform rotate-45"></div>
+      <div className="w-5 h-0.5 bg-gray-800 transform -rotate-45 -mt-0.5"></div>
+    </div>
+  </button>
+  <nav className="flex flex-col space-y-4 text-lg">
+    <button className="text-gray-800 hover:text-blue-800 times-roman-like" onClick={() => { scrollToSection(); setTimeout(toggleMenu, 300); }}>About</button>
+    <button className="text-gray-800 hover:text-blue-800 times-roman-like" onClick={() => { scrollToSection(); setTimeout(toggleMenu, 300); }}>Services</button>
+    <button className="text-gray-800 hover:text-blue-800 times-roman-like" onClick={() => { scrollToArea(); setTimeout(toggleMenu, 300); }}>Portfolio</button>
+    <button className="text-gray-800 hover:text-blue-800 times-roman-like" onClick={() => { scrollToFAQ(); setTimeout(toggleMenu, 300); }}>FAQ</button>
+    <button className="text-gray-800 hover:text-blue-800 times-roman-like" onClick={() => { scrollToTeam(); setTimeout(toggleMenu, 300); }}>Our Team</button>
+    <button className="text-gray-800 hover:text-blue-800 times-roman-like" onClick={() => { scrollToContact(); setTimeout(toggleMenu, 300); }}>Contact us</button>
+  </nav>
+</div>
+
       {/* Get started button */}
       <button type="button" onClick={scrollToSection} disabled className="text-white text-sm px-5 py-2.5 mr-2 mb-2">
         Get started
