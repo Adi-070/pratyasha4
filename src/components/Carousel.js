@@ -4,10 +4,10 @@ import Image from 'next/image';
 
 const Carousel = () => {
   const images = [
-    {src:'/static/PLAN.jpg', alt:'Image 3 description'},
-    {src:'/static/INTERIOR 1.jpg', alt:'Image 3 description'},
-    {src:'/static/INTERIOR 2.jpg', alt:'Image 3 description'},
-    {src:'/static/INTERIOR 3.jpg', alt:'Image 3 description'},
+    { src: '/static/PLAN.jpg', alt: 'Image 1 description' },
+    { src: '/static/INTERIOR 1.jpg', alt: 'Image 2 description' },
+    { src: '/static/INTERIOR 2.jpg', alt: 'Image 3 description' },
+    { src: '/static/INTERIOR 3.jpg', alt: 'Image 4 description' },
   ];
 
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -23,16 +23,17 @@ const Carousel = () => {
       prevIndex === images.length - 1 ? 0 : prevIndex + 1
     );
   };
+
   useEffect(() => {
     const intervalId = setInterval(nextSlide, 3000); // Change slide every 3 seconds
 
     return () => {
-      clearInterval(intervalId); 
+      clearInterval(intervalId);
     };
   }, []);
 
   return (
-    <div className="relative w-full md:w-5/6 lg:w-4/5 md:mt-20">
+    <div className="relative w-full md:w-5/6 lg:w-4/5 md:mt-20 mx-auto"> {/* Added mx-auto to center the carousel */}
       <div className="relative h-96 overflow-hidden">
         {images.map((image, index) => (
           <div
@@ -44,7 +45,8 @@ const Carousel = () => {
             <Image
               src={image.src}
               alt={image.alt}
-              fill="true" 
+              layout="fill" // Use "layout" prop instead of "fill"
+              objectFit="cover" // Ensure the image covers the container
             />
           </div>
         ))}

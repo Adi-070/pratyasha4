@@ -1,14 +1,20 @@
 import React, { useEffect, useState, useRef } from 'react';
 import Image from 'next/image';
+import dynamic from 'next/dynamic';
 import Faq from './Faq';
 import Carousel from '../components/Carousel';
 import ContactForm from './ContactForm';
+import Learn from './Learn';
+import MapComponent from '../components/MapComponent/index'
 
 if (typeof window !== 'undefined') {
   window.onload = function() {
     document.getElementById("autoplay").play();
   }
 }
+
+const center = [22.46167041543259, 88.37887723725646]; 
+  const zoom = 26; 
 const teamMembers = [
   {
     name: 'Souvik Barh',
@@ -43,6 +49,7 @@ const teamMembers = [
 ];
 const Layout = ({ children }) => {
   
+  
   const dropdownRef = useRef(null);
   const scrollContainerRef = useRef(null);
   const hamburgeref = useRef(null);
@@ -68,11 +75,10 @@ const Layout = ({ children }) => {
     const scrollToTeam = () => {
       document.getElementById('team').scrollIntoView({ behavior: 'smooth' });
       };
-  // State to manage the visibility of the dropdown
+ 
   const [isDropdownVisible, setDropdownVisible] = useState(false);
   const [isMobileMenuVisible, setMobileMenuVisible] = useState(false);
 
-  // Function to toggle the dropdown visibility
   const toggleDropdown = () => {
     setDropdownVisible(!isDropdownVisible);
   };
@@ -89,19 +95,18 @@ const Layout = ({ children }) => {
   };
   const scrollLeft = () => {
     scrollContainerRef.current.scrollBy({
-      left: -450, // Adjust this value to your desired scroll distance
+      left: -450, 
       behavior: 'smooth',
     });
   };
   const scrollRight = () => {
     scrollContainerRef.current.scrollBy({
-      left: 450, // Adjust this value to your desired scroll distance
+      left: 450, 
       behavior: 'smooth',
     });
   };
   
 
-  // Add event listener for clicks outside the dropdown
   useEffect(() => {
     if (isDropdownVisible || isMobileMenuVisible) {
       document.addEventListener('mousedown', handleClickOutside);
@@ -130,23 +135,16 @@ const Layout = ({ children }) => {
 
   //   return () => clearInterval(scrollInterval);
   // }, []);
+  
 
   return (
-    <div className="flex flex-col min-h-screen bg-white">
-    <header className="flex  justify-between items-center p-4">
-    
-      <img src="/static/Real-logo.png" className="w-10 h-10 mb-2" alt="Interior Icon" style={{width:150,height:100}} />
-  
-      {/* Navigation (centered) */}
-      <nav className="relative flex justify-center items-center p-4">
-      <div className="md:hidden">
-        <button id="hamburger"className="focus:outline-none" onClick={toggleMobileMenu}>
-          <svg className="w-6 h-6 text-black" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h16M4 18h16"></path>
-          </svg>
-        </button>
-      </div>
-      <div className="hidden md:flex space-x-24 justify-center">
+    <div className="flex flex-col min-h-screen bg-slate-100">
+   <header className="flex justify-between items-center p-4">
+    <img src="/static/Real-logo.png" className="w-10 h-10 mb-2" alt="Interior Icon" style={{ width: 150, height: 100 }} />
+
+    {/* Navigation (centered) */}
+    <nav className="flex-1 flex justify-center items-center p-4">
+      <div className="hidden md:flex space-x-24">
         <a href="#" className="text-black hover:text-gray-600 font-bold underline-animation">
           About Us
         </a>
@@ -182,90 +180,77 @@ const Layout = ({ children }) => {
           <div
             ref={dropdownRef}
             id="dropdownDivider"
-            className={`z-10 ${isDropdownVisible ? 'block' : 'hidden'} absolute bg-white divide-y divide-gray-100 rounded-lg w-44 dark:bg-gray-700 dark:divide-gray-600`}
+            className={`z-10 ${isDropdownVisible ? 'block' : 'hidden'} absolute bg-slate-100 divide-y divide-gray-100 rounded-lg w-44 dark:bg-gray-700 dark:divide-gray-600`}
           >
             <ul className="py-2 text-sm text-gray-700 times-roman-like dark:text-gray-200" aria-labelledby="dropdown">
               <li>
-                <a href="#" onClick={scrollToFAQ} className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">
+                <a href="#" onClick={scrollToFAQ} className="block px-4 py-2 hover:bg-gray-300 dark:hover:bg-gray-600 dark:hover:text-white">
                   FAQs
                 </a>
               </li>
               <li>
-                <a href="#" onClick={scrollToTeam} className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">
+                <a href="#" onClick={scrollToTeam} className="block px-4 py-2 hover:bg-gray-300 dark:hover:bg-gray-600 dark:hover:text-white">
                   Our Team
                 </a>
               </li>
+              <li>
+                <a href="#" onClick={scrollToContact} className="block px-4 py-2 hover:bg-gray-300 dark:hover:bg-gray-600 dark:hover:text-white">
+                  Contact us
+                </a>
+              </li>
             </ul>
-            <div className="py-2">
-              <a
-                href="#" onClick={scrollToContact}
-                className="block px-4 py-2 text-sm times-roman-like text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white"
-              >
-                Contact us
-              </a>
-            </div>
           </div>
         </div>
       </div>
       <div
-    id="mobileMenu"
-    ref={hamburgeref}
-    className={`md:hidden absolute top-full right-0 w-full ${isMobileMenuVisible ? 'block' : 'hidden'}`}
-  >
-    {/* <ul className="dropdown-content z-[3] menu p-2 shadow bg-base-100 w-40">
-      <li><a href="#" className="times-roman-like block px-4 py-2 text-black hover:bg-gray-100 dark:hover:bg-gray-600 bg-white dark:hover:text-white">About Us</a></li>
-      <li><a href="#" onClick={scrollToSection} className="times-roman-like text-black block px-4 py-2 bg-white hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Services</a></li>
-      <li><a href="#" onClick={scrollToArea} className="times-roman-like block text-black px-4 py-2 bg-white hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Portfolio</a></li>
-      <li><a href="#" onClick={scrollToFAQ} className="times-roman-like block px-4 py-2 bg-white text-black bg-opacity-100 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">FAQs</a></li>
-      <li><a href="#" onClick={scrollToContact} className="times-roman-like block px-4 py-2 bg-white text-black bg-opacity-100 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Contact</a></li>
-      <li><a href="#" onClick={scrollToTeam} className="times-roman-like block px-4 py-2 bg-white text-black bg-opacity-100 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Our Team</a></li>
-    </ul> */}
-  </div>
+        id="mobileMenu"
+        ref={hamburgeref}
+        className={`md:hidden absolute top-full right-0 w-full ${isMobileMenuVisible ? 'block' : 'hidden'}`}
+      >
+        {/* Mobile menu items */}
+      </div>
     </nav>
-    
-    <div className={`fixed top-0 right-0 w-full h-full bg-gray-200 flex flex-col items-center justify-center z-50 transform ${isMobileMenuVisible ? 'translate-x-0' : 'translate-x-full'} transition-transform duration-500 ease-in-out`}>
-  <button className="absolute top-4 right-4 text-gray-800 focus:outline-none" onClick={toggleMenu}>
-    <div className="w-6 h-6 flex flex-col justify-center items-center">
-      <div className="w-5 h-0.5 bg-gray-800 transform rotate-45"></div>
-      <div className="w-5 h-0.5 bg-gray-800 transform -rotate-45 -mt-0.5"></div>
-    </div>
-  </button>
-  <nav className="flex flex-col space-y-4 text-lg">
-    <button className="text-gray-800 hover:text-blue-800 times-roman-like" onClick={() => { scrollToSection(); setTimeout(toggleMenu, 300); }}>About</button>
-    <button className="text-gray-800 hover:text-blue-800 times-roman-like" onClick={() => { scrollToSection(); setTimeout(toggleMenu, 300); }}>Services</button>
-    <button className="text-gray-800 hover:text-blue-800 times-roman-like" onClick={() => { scrollToArea(); setTimeout(toggleMenu, 300); }}>Portfolio</button>
-    <button className="text-gray-800 hover:text-blue-800 times-roman-like" onClick={() => { scrollToFAQ(); setTimeout(toggleMenu, 300); }}>FAQ</button>
-    <button className="text-gray-800 hover:text-blue-800 times-roman-like" onClick={() => { scrollToTeam(); setTimeout(toggleMenu, 300); }}>Our Team</button>
-    <button className="text-gray-800 hover:text-blue-800 times-roman-like" onClick={() => { scrollToContact(); setTimeout(toggleMenu, 300); }}>Contact us</button>
-  </nav>
-</div>
 
-      {/* Get started button */}
-      <button type="button" onClick={scrollToSection} disabled className="text-white text-sm px-5 py-2.5 mr-2 mb-2">
-        Get started
+    <div className={`fixed top-0 right-0 w-full h-full bg-gray-200 flex flex-col items-center justify-center z-50 transform ${isMobileMenuVisible ? 'translate-x-0' : 'translate-x-full'} transition-transform duration-500 ease-in-out`}>
+      <button className="absolute top-4 right-4 text-gray-800 focus:outline-none" onClick={toggleMenu}>
+        <div className="w-6 h-6 flex flex-col justify-center items-center">
+          <div className="w-5 h-0.5 bg-gray-800 transform rotate-45"></div>
+          <div className="w-5 h-0.5 bg-gray-800 transform -rotate-45 -mt-0.5"></div>
+        </div>
       </button>
-      {/* <div className="md:hidden">
-        <button id="hamburger"className="focus:outline-none" onClick={toggleMobileMenu}>
-          <svg className="w-6 h-6 text-black" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h16M4 18h16"></path>
-          </svg>
-        </button>
-      </div> */}
-    </header>
+      <nav className="flex flex-col space-y-4 text-lg">
+        <button className="text-gray-800 hover:text-blue-800 times-roman-like" onClick={() => { scrollToSection(); setTimeout(toggleMenu, 300); }}>About</button>
+        <button className="text-gray-800 hover:text-blue-800 times-roman-like" onClick={() => { scrollToSection(); setTimeout(toggleMenu, 300); }}>Services</button>
+        <button className="text-gray-800 hover:text-blue-800 times-roman-like" onClick={() => { scrollToArea(); setTimeout(toggleMenu, 300); }}>Portfolio</button>
+        <button className="text-gray-800 hover:text-blue-800 times-roman-like" onClick={() => { scrollToFAQ(); setTimeout(toggleMenu, 300); }}>FAQ</button>
+        <button className="text-gray-800 hover:text-blue-800 times-roman-like" onClick={() => { scrollToTeam(); setTimeout(toggleMenu, 300); }}>Our Team</button>
+        <button className="text-gray-800 hover:text-blue-800 times-roman-like" onClick={() => { scrollToContact(); setTimeout(toggleMenu, 300); }}>Contact us</button>
+      </nav>
+    </div>
+
+    <div className="md:hidden">
+      <button id="hamburger" className="focus:outline-none" onClick={toggleMobileMenu}>
+        <svg className="w-6 h-6 text-black" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h16M4 18h16"></path>
+        </svg>
+      </button>
+    </div>
+  </header>
   
     <hr className="border-t border-black w-full mx-auto -mt-6" />
   
     <div className="flex-grow p-4">
       <div className="flex flex-col md:flex-row  space-y-8 md:space-y-0 md:space-x-40 px-4">
-        <div className="w-full md:w-1/2">
-          {/* Left side content */}
-          {children}
-        </div>
-        <div className="w-full md:w-1/2">
+      <div className="w-full md:w-1/2">
         <br/><br/><br/>
           <Carousel
           />
         </div>
+        <div className="w-full md:w-1/2">
+          {/* Left side content */}
+          {children}
+        </div>
+        
       </div>
     </div>
   
@@ -284,28 +269,36 @@ const Layout = ({ children }) => {
   Transforming Spaces Through Innovative Architectural Design
 </h1>
 
-    <p className="text-xl lg:text-2xl text-black-200 mb-12  times-roman-like text-justify ">
-    Pratyasha is a premier architectural firm specialising in interior design and construction services. Leveraging our expertise and meticulous attention to detail, we create spaces that inspire and captivate.
+    <p className="text-xl lg:text-2xl text-black-200 mb-12  times-roman-like text-justify custom-spacing ">
+    Pratyasha is known as a leading architectural firm specializing in interior design and construction services. Leveraging our expertise and meticulous attention to detail, we create spaces that inspire and captivate.
     </p>
-    <div className="flex flex-wrap times-roman-like justify-center lg:justify-start">
-      <button onClick={scrollToSection}  type="button" className="text-white times-roman-like bg-black focus:outline-none focus:ring-4 focus:ring-gray-300 font-medium text-sm px-5 py-2.5 mr-2 mb-2">
-        Discover
-      </button>
-      <button type="button" className="text-black bg-white focus:outline-none focus:ring-4 focus:ring-gray-300 font-medium text-sm px-5 py-2.5 mb-2 times-roman-like">
-        Learn more
-      </button>
-    </div>
+    <div className="flex flex-wrap times-roman-like justify-center lg:justify-start mt-4 md:mt-10">
+  <button
+    onClick={scrollToSection}
+    type="button"
+    className="text-white times-roman-like rounded-md bg-black focus:outline-none focus:ring-4 focus:ring-gray-300 font-medium text-sm px-5 py-2.5 mr-2 mb-2"
+  >
+    Discover
+  </button>
+  <button
+    type="button"
+    className="text-black rounded-md bg-white focus:outline-none focus:ring-4 focus:ring-gray-300 font-medium text-sm px-5 py-2.5 mb-2 times-roman-like"
+  >
+    Learn more
+  </button>
+</div>
+
   </div>
     </div>
   <br/><br/><br/>
     {/* Innovative Section */}
     <div className="flex justify-center items-center h-screen relative ">
-  <div className="font-bold mb-8 w-full  mx-auto px-4">
+  <div className="font-bold mb-8 w-full mx-auto px-4">
     <div className="flex flex-col items-center">
       <div className="w-full md:w-3/4 lg:w-1/2 mx-auto text-center">
         {/* <h1 id="one" className="text-base times-roman-like text-center text-black mt-20 md:mt-10">Innovative</h1> */}
         <br/><br/><br/><br/>
-        <h2 id="one" className="text-2xl mt-16 times-roman-like md:text-4xl font-bold text-black mb-4 md:mb-8"style={{ lineHeight: '1.25' }}> 
+        <h2 id="one" className="text-2xl mt-16 times-roman-like md:text-4xl font-bold text-black md:mb-8"style={{ lineHeight: '1.25' }}> 
         Transforming Spaces with Creative Design Solutions
         </h2>
         <br/>
@@ -323,12 +316,14 @@ const Layout = ({ children }) => {
     <div className="flex flex-col items-center md:w-1/3">
         <img src="/static/interior.png" className="w-10 h-10 mb-2" alt="Interior Icon" />
         <div className="text-black times-roman-like text-xl mb-4 md:mb-8 text-center md:text-justify">Interior Design Services</div>
-        <p className="text-base text-black md:text-justify times-roman-like">Our interior design services are tailored to suit your unique style and preferences, creating functional and aesthetically pleasing spaces.</p>
+        <p className="text-base text-black md:text-justify times-roman-like">
+        Our interior design services are tailored to suit your unique style and preferences, creating functional and aesthetically pleasing spaces.</p>
     </div>
     <div className="flex flex-col items-center md:w-1/3">
         <img src="/static/floorplan.png" className="w-10 h-10 mb-2" alt="Interior Icon" />
         <div className="text-black text-xl mb-4 md:mb-8 text-center md:text-justify tight-spacing times-roman-like">Engineering Solutions</div>
-        <p className="text-base text-black md:text-justify times-roman-like">We provide quite comprehensive engineering solutions, ensuring quality craftsmanship and attention to detail throughout the process.</p>
+        <p className="text-base text-black md:text-justify times-roman-like">
+        We provide quite comprehensive engineering solutions, ensuring quality craftsmanship and attention to detail throughout the process. </p>
     </div>
     <div className="flex flex-col items-center md:w-1/3">
         <img src="/static/construction.png" className="w-10 h-10 mb-2" alt="Construction Icon" />
@@ -339,9 +334,10 @@ const Layout = ({ children }) => {
 
     {/* Buttons */}
     <div className="flex flex-col mt-4 justify-center items-center md:mt-4 space-y-4 md:space-y-0 md:space-x-4">
-  <button type="button" className="text-black times-roman-like border border-gray-500 focus:ring-4 focus:ring-gray-300 mb-10 font-medium text-sm px-5 py-2.5 md:mb-2">
+    {/* <button type="button" className="text-black bg-white times-roman-like border border-gray-500 shadow-lg focus:ring-4 focus:ring-gray-300 mb-10 rounded-md font-medium text-sm px-5 py-2.5 md:mb-2">
     Learn more
-  </button>
+</button> */}
+<Learn/>
 </div>
   </div>
 </div>
@@ -360,10 +356,7 @@ const Layout = ({ children }) => {
   </div>
 </div>
 
-
-    
 <div className='relative'>
-  
 <button
         onClick={scrollLeft}
         className="absolute left-8 top-1/2  z-10 p-2"
@@ -504,8 +497,8 @@ const Layout = ({ children }) => {
     Contact us
 </h2>
 <br/><br/>
-<div class="grid sm:grid-cols-2 items-center gap-16 my-6 mx-auto md:ml-14 max-w-7xl bg-white text-[#333] font-[sans-serif] w-full px-4">
-    <div>
+<div class="grid sm:grid-cols-2 items-center gap-16 my-6 mx-auto md:ml-14 max-w-7xl bg-white text-[#333] font-[sans-serif] w-full">
+    <div className='bg-slate-100  px-4'>
       
         <h1 class="text-3xl font-extrabold times-roman-like">Let&apos;s Talk</h1><br/><br/>
         <p class="text-sm text-gray-400 mt-3 times-roman-like">Have some big idea or brand to develop and need help? Then reach out we&apos;d love to hear about your project and provide help.</p>
@@ -536,6 +529,16 @@ const Layout = ({ children }) => {
                         <small class="block ">Call</small>
                         <strong>+91 9663031560</strong>
                     </a>
+                </li><br/>
+                <li class="flex items-center">
+                     <div class="bg-[#e6e6e6cf] h-10 w-10 rounded-full flex items-center justify-center shrink-0">
+                     <svg class="w-6 h-6 text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 24 24"> <path fill-rule="evenodd" d="M7 2a2 2 0 0 0-2 2v1a1 1 0 0 0 0 2v1a1 1 0 0 0 0 2v1a1 1 0 1 0 0 2v1a1 1 0 1 0 0 2v1a1 1 0 1 0 0 2v1a2 2 0 0 0 2 2h11a2 2 0 0 0 2-2V4a2 2 0 0 0-2-2H7Zm3 8a3 3 0 1 1 6 0 3 3 0 0 1-6 0Zm-1 7a3 3 0 0 1 3-3h2a3 3 0 0 1 3 3 1 1 0 0 1-1 1h-6a1 1 0 0 1-1-1Z" clip-rule="evenodd"/> </svg>
+</div>
+
+                    <a href="javascript:void(0)" class="text-black times-roman-like text-sm ml-3">
+                        <small class="block ">Address</small>
+                        <strong>550, Boral Main Road, Garia, Kolkata Kolkata West Bengal 700154</strong>
+                    </a>
                 </li>
             </ul>
         </div>
@@ -562,9 +565,9 @@ const Layout = ({ children }) => {
                 </li>
                 <li class="bg-[#e6e6e6cf] h-10 w-10 rounded-full flex items-center justify-center shrink-0">
                     <a href="https://x.com/PratyashaDesign">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="20px" height="20px" fill='black' viewBox="0 0 24 24">
-                        <path d="M12.6.75h2.454l-5.36 6.142L16 15.25h-4.937l-3.867-5.07-4.425 5.07H.316l5.733-6.57L0 .75h5.063l3.495 4.633L12.601.75Zm-.86 13.028h1.36L4.323 2.145H2.865z"/>
-                        </svg>
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 50 50" fill="currentColor" className="w-5 h-5">
+						<path d="M 50.0625 10.4375 C 48.214844 11.257813 46.234375 11.808594 44.152344 12.058594 C 46.277344 10.785156 47.910156 8.769531 48.675781 6.371094 C 46.691406 7.546875 44.484375 8.402344 42.144531 8.863281 C 40.269531 6.863281 37.597656 5.617188 34.640625 5.617188 C 28.960938 5.617188 24.355469 10.21875 24.355469 15.898438 C 24.355469 16.703125 24.449219 17.488281 24.625 18.242188 C 16.078125 17.8125 8.503906 13.71875 3.429688 7.496094 C 2.542969 9.019531 2.039063 10.785156 2.039063 12.667969 C 2.039063 16.234375 3.851563 19.382813 6.613281 21.230469 C 4.925781 21.175781 3.339844 20.710938 1.953125 19.941406 C 1.953125 19.984375 1.953125 20.027344 1.953125 20.070313 C 1.953125 25.054688 5.5 29.207031 10.199219 30.15625 C 9.339844 30.390625 8.429688 30.515625 7.492188 30.515625 C 6.828125 30.515625 6.183594 30.453125 5.554688 30.328125 C 6.867188 34.410156 10.664063 37.390625 15.160156 37.472656 C 11.644531 40.230469 7.210938 41.871094 2.390625 41.871094 C 1.558594 41.871094 0.742188 41.824219 -0.0585938 41.726563 C 4.488281 44.648438 9.894531 46.347656 15.703125 46.347656 C 34.617188 46.347656 44.960938 30.679688 44.960938 17.09375 C 44.960938 16.648438 44.949219 16.199219 44.933594 15.761719 C 46.941406 14.3125 48.683594 12.5 50.0625 10.4375 Z"></path>
+					</svg>
                     </a>
                 </li>
                 <li class="bg-[#e6e6e6cf] h-10 w-10 rounded-full flex items-center justify-center shrink-0">
@@ -594,7 +597,10 @@ const Layout = ({ children }) => {
     <ContactForm/>
 </div>
 
-
+<div className="container mx-auto p-4">
+      <h1 className="text-3xl font-extrabold times-roman-like mb-4 md:ml-10">Find us</h1>
+      <MapComponent center={center} zoom={zoom} />
+    </div>
   <Faq/>
   <section className="text-center py-20">
       {/* <h2 className="text-lg font-semibold uppercase text-gray-500 mb-2">Innovative</h2> */}
@@ -627,6 +633,24 @@ const Layout = ({ children }) => {
         ))}
       </div>
     </section>
+    <div className="flex flex-col items-center justify-center">
+  <div class="text-2xl times-roman-like font-bold text-black mt-8 mb-8 tight-spacing">
+    We're hiring!
+  </div>
+  <a href="#" className="text-base times-roman-like mb-8 break-words text-center md:text-left">
+    Contact us for more information.
+  </a>
+  <div className="flex justify-center"> {/* Center the button */}
+  <button
+  onClick={scrollToContact}
+  type="button"
+  className="text-black bg-white border border-gray-500 shadow-lg focus:outline-none focus:ring-4 focus:ring-gray-300 rounded-md font-medium text-sm px-5 py-2.5 mr-2 mb-2"
+>
+  Open Positions
+</button>
+
+  </div>
+</div>
     {/* Footer */}
     <div>
   <footer className="text-gray-800 w-full mx-auto inter md:pt-15">

@@ -44,7 +44,7 @@ const Faq = () => {
   <div className="flex justify-center"> {/* Center the button */}
     <button onClick={scrollToContact}
       type="button"
-      className="text-black times-roman-like border border-gray-500 focus:ring-4 focus:ring-gray-300 font-medium text-sm px-5 py-2.5 mr-2"
+      className="text-black bg-white border border-gray-500 shadow-lg focus:outline-none focus:ring-4 focus:ring-gray-300 rounded-md font-medium text-sm px-5 py-2.5 mr-2 mb-2"
     >
       Contact us
     </button>
