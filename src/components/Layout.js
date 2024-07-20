@@ -11,7 +11,7 @@ if (typeof window !== 'undefined') {
 }
 const teamMembers = [
   {
-    name: 'John Doe',
+    name: 'Souvik Barh',
     title: 'Architect',
     description: 'With over 10 years of experience, John brings a unique perspective to every project.',
   },
