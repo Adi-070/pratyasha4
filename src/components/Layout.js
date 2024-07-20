@@ -14,7 +14,7 @@ if (typeof window !== 'undefined') {
 }
 
 const center = [22.46167041543259, 88.37887723725646]; 
-  const zoom = 26; 
+  const zoom = 13; 
 const teamMembers = [
   {
     name: 'Souvik Barh',
