@@ -635,7 +635,7 @@ const Layout = ({ children }) => {
     </section>
     <div className="flex flex-col items-center justify-center">
   <div class="text-2xl times-roman-like font-bold text-black mt-8 mb-8 tight-spacing">
-    We're hiring!
+    We&apos;re hiring!
   </div>
   <a href="#" className="text-base times-roman-like mb-8 break-words text-center md:text-left">
     Contact us for more information.
