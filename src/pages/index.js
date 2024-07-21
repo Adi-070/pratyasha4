@@ -1,5 +1,6 @@
 import React from 'react';
 import Layout from '../components/Layout';
+import Head from 'next/head';
 import BookCover from '../components/BookCover';
 
 const HomePage = () => {
@@ -7,7 +8,12 @@ const HomePage = () => {
     document.getElementById('one').scrollIntoView({ behavior: 'smooth' });
   };
   return (
-    
+    <>
+    <Head>
+        <title>Pratyasha</title>
+        <meta name="description" content="Transforming spaces through innovative design and impeccable craftsmanship." />
+        <link rel="icon" href="/favicon.ico" />
+      </Head>
     <Layout>
       <section className="hero min-h-screen bg-cover bg-center" >
         <div className="container mx-auto  md:ml-4 py-24 flex flex-col justify-center items-center text-center">
@@ -23,7 +29,9 @@ const HomePage = () => {
       </button>
         </div>
       </section>
+      
     </Layout>
+    </>
     // <div  className=" min-h-screen">
     //       <BookCover/>
     // </div>  
