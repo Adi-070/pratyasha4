@@ -4,10 +4,10 @@ import Image from 'next/image';
 
 const Carousel = () => {
   const images = [
-    { src: '/static/PLAN.jpg', alt: 'Image 1 description' },
-    { src: '/static/INTERIOR 1.jpg', alt: 'Image 2 description' },
-    { src: '/static/INTERIOR 2.jpg', alt: 'Image 3 description' },
-    { src: '/static/INTERIOR 3.jpg', alt: 'Image 4 description' },
+    { src: '/static/PLAN.webp', alt: 'Image 1 description' },
+    { src: '/static/INTERIOR 1.webp', alt: 'Image 2 description' },
+    { src: '/static/INTERIOR 2.webp', alt: 'Image 3 description' },
+    { src: '/static/INTERIOR 3.webp', alt: 'Image 4 description' },
   ];
 
   const [currentIndex, setCurrentIndex] = useState(0);
