@@ -539,7 +539,7 @@ const Layout = ({ children }) => {
 
                     <a href="javascript:void(0)" class="text-black times-roman-like text-sm ml-3">
                         <small class="block ">Address</small>
-                        <strong>550, Boral Main Road, Garia, Kolkata Kolkata West Bengal 700154</strong>
+                        <strong>550, Boral Main Road, Garia, Kolkata, West Bengal 700154</strong>
                     </a>
                 </li>
             </ul>
