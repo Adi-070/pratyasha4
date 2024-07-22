@@ -266,9 +266,9 @@ const Layout = ({ children }) => {
   
       <div className="absolute inset-0 bg-black opacity-40 "></div>
   <div className="text-white text-4xl lg:text-5xl w-full lg:w-1/2 font-bold mb-8 z-10 pr-4 ml-8 lg:mt-40">
-  <h1 className="text-4xl lg:text-5xl times-roman-like font-bold text-white  mt-10 mb-8" style={{ lineHeight: '1.25' }}>
+  <h5 className="text-4xl lg:text-5xl times-roman-like font-bold text-white  mt-10 mb-8" style={{ lineHeight: '1.25' }}>
   Transforming Spaces Through Innovative Architectural Design
-</h1>
+</h5>
 
     <p className="text-xl lg:text-2xl text-black-200 mb-12  times-roman-like text-justify custom-spacing ">
     Pratyasha is known as a leading architectural firm specializing in interior design and construction services. Leveraging our expertise and meticulous attention to detail, we create spaces that inspire and captivate.
@@ -347,7 +347,7 @@ const Layout = ({ children }) => {
 
 <div className="flex justify-center mt-14 items-center">
   <div className="w-full mt-14 md:w-3/4 lg:w-1/2 mx-auto text-center"> {/* Adjust width for smaller screens */}
-    <h1  className="text-lg md:text-base  mt-12 md:mb-8  text-white times-roman-like">P</h1>
+    <h9  className="text-lg md:text-base  mt-12 md:mb-8  text-white times-roman-like">P</h9>
     <h2 id="two" className="text-2xl times-roman-like times md:text-4xl font-bold text-black mb-4 md:mb-8"><br/><br/>
       Experience Our Expertise
     </h2>
@@ -600,7 +600,7 @@ const Layout = ({ children }) => {
 </div>
 
 <div className="container mx-auto p-4">
-      <h1 className="text-3xl font-extrabold text-black times-roman-like mb-4 md:ml-10">Find us</h1>
+      <h3 className="text-3xl font-extrabold text-black times-roman-like mb-4 md:ml-10">Find us</h3>
       <MapComponent center={center} zoom={zoom} />
     </div>
   <Faq/>
