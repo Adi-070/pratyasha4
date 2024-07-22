@@ -598,13 +598,13 @@ const Layout = ({ children }) => {
 </div>
 
 <div className="container mx-auto p-4">
-      <h1 className="text-3xl font-extrabold times-roman-like mb-4 md:ml-10">Find us</h1>
+      <h1 className="text-3xl font-extrabold text-black times-roman-like mb-4 md:ml-10">Find us</h1>
       <MapComponent center={center} zoom={zoom} />
     </div>
   <Faq/>
   <section className="text-center py-20">
       {/* <h2 className="text-lg font-semibold uppercase text-gray-500 mb-2">Innovative</h2> */}
-      <h3 id="team" className="text-4xl font-bold mb-6">Meet Our Team</h3>
+      <h3 id="team" className="text-4xl font-bold text-black mb-6">Meet Our Team</h3>
       <p className="max-w-xl mx-auto mb-16 text-gray-600">
         Get to know the talented individuals behind Pratyasha.
       </p>
